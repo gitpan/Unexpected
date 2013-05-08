@@ -1,0 +1,51 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.66.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 d3bf9956efd8d951d172a1feb0232302b8c82f57 Build.PL
+SHA1 2becf371487a382b70b36df01262bbfc2cf7ee94 Changes
+SHA1 2b3ccb88f716f614f8af721a1c69dba0bcdbbb32 LICENSE
+SHA1 fa59c127f610ca36e273d2d3723c75a58204d960 MANIFEST
+SHA1 4972095759cce69271959c635baea470ce2db3fc META.json
+SHA1 7eb11d16983ce6955473250f2d3d3ea4dc544b5c META.yml
+SHA1 f96c2b15c24fbfb8e100fca46e1adb767a895bbd README
+SHA1 2dad6b015a19acb067ac9b3d677292796ecdb1c9 inc/Bob.pm
+SHA1 b2daf2d6d3f2158b33d84a79ea725c922f508718 inc/CPANTesting.pm
+SHA1 3e461b4687dcea7680dc96761ecd703556759063 inc/SubClass.pm
+SHA1 e97184bbf74708e0cf67567a807f3d5e915a47b0 lib/Unexpected.pm
+SHA1 e4458a75ad52dcf512109231fc771b75e8f58907 lib/Unexpected/TraitFor/ErrorLeader.pm
+SHA1 d8eeb95f90a6dd71ded9d12b9db6c05797199135 lib/Unexpected/TraitFor/StringifyingError.pm
+SHA1 b4142693fee9c5b8a6a665eaf54d3ec32d32c095 lib/Unexpected/TraitFor/Throwing.pm
+SHA1 ba0571bda27a912222cec1c100659bbb257ae796 lib/Unexpected/TraitFor/TracingStacks.pm
+SHA1 8e65f1bcbe699485be07ea22c8465ad6e6dc371b t/01always_pass.t
+SHA1 dad830c12f9f5bbcb089ee2fd46705609ce79e4f t/02pod.t
+SHA1 e6a7eae25039b0d358adced67e2060387c359478 t/03podcoverage.t
+SHA1 ece5f6111a0bc8778bd42936707a01d3eaff76cc t/04critic.t
+SHA1 b072ded16078e01c072deb8d1cb6368b906b85b2 t/05kwalitee.t
+SHA1 0f6703b886384b2c7c411b6a898d9ef63e5d0b4a t/06yaml.t
+SHA1 d7290c1247706aa662ba83bfdfffdc0eefac9996 t/07podspelling.t
+SHA1 9c7cc110e6df2c61323eb64510b7c4bc0639d669 t/08memory_leak.t
+SHA1 fd86849c3274b773768429ae895a9c22717a84f0 t/10test_script.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iQEcBAEBAgAGBQJRirJ2AAoJEK492j4Im1Bp3KwH/2+1Xx7tSid10jB8Q83RbTXx
+yVKgBMx+2aNP1ehuq/a/6rJTC6okdgZYzbp9h6+lPxVAdxBAold7FpkJKXXtEj+H
+X4FDTcb0Tuk3pjTWWT0z/mpLYo7VcsMQ2Dm222aI7Q3hOEhQs6legbTBtSIjHjhC
+r9rhdGl/ocQzMpybfb/vzKiePzy9wpbBQ5L++agL8p290iTxmwrdkJZlnn9XFEYO
+OmgoWs/iVhk9fl36+lQSNPRVX1KSz57tvSMXVs97bwUNfPzWM6mxz7qG0uIFoBGq
+LEJ++ZP6JKXZCqHvcFxi7nwGo94qDUdQHI9edJavH5HpJmydKu5W3kirBkV5/Yw=
+=J0Ry
+-----END PGP SIGNATURE-----
