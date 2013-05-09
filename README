@@ -27,7 +27,7 @@ Synopsis
        catch { warn $_."\n\n".$_->stacktrace."\n" };
 
 Version
-    This documents version v0.1.$Rev: 9 $ of Unexpected
+    This documents version v0.1.$Rev: 10 $ of Unexpected
 
 Description
     An exception class that supports error messages with placeholders, a
