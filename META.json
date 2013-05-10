@@ -55,7 +55,7 @@
    "provides" : {
       "Unexpected" : {
          "file" : "lib/Unexpected.pm",
-         "version" : "v0.1.10"
+         "version" : "v0.1.12"
       },
       "Unexpected::TraitFor::ErrorLeader" : {
          "file" : "lib/Unexpected/TraitFor/ErrorLeader.pm",
@@ -71,7 +71,7 @@
       },
       "Unexpected::TraitFor::TracingStacks" : {
          "file" : "lib/Unexpected/TraitFor/TracingStacks.pm",
-         "version" : "v0.1.2"
+         "version" : "v0.1.11"
       }
    },
    "release_status" : "stable",
@@ -84,5 +84,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "v0.1.10"
+   "version" : "v0.1.12"
 }
