@@ -43,7 +43,7 @@ Synopsis
        catch { warn $_->message };
 
 Version
-    This documents version v0.1.$Rev: 12 $ of Unexpected
+    This documents version v0.1.$Rev: 14 $ of Unexpected
 
 Description
     An exception class that supports error messages with placeholders, a
