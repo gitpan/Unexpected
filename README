@@ -1,10 +1,10 @@
 Name
-    Unexpected - Moose exception class composed from traits
+    Unexpected - Exception class composed from traits
 
 Synopsis
        package YourApp::Exception;
 
-       use Moose;
+       use Moo;
 
        extends 'Unexpected';
        with    'Unexpected::TraitFor::ErrorLeader';
@@ -43,7 +43,7 @@ Synopsis
        catch { warn $_->message };
 
 Version
-    This documents version v0.1.$Rev: 14 $ of Unexpected
+    This documents version v0.2.$Rev: 1 $ of Unexpected
 
 Description
     An exception class that supports error messages with placeholders, a
@@ -65,6 +65,9 @@ Configuration and Environment
        classes of error
 
 Subroutines/Methods
+  BUILDARGS
+    Placeholder to shut Pod::Coverage up
+
   BUILD
     Does nothing placeholder that allows the applied roles to modify it
 
@@ -77,12 +80,13 @@ Diagnostics
     None
 
 Dependencies
-    namespace::autoclean
-    Moose
-    MooseX::Types::Common
+    namespace::sweep
+    overload
+    Moo
     Unexpected::TraitFor::StringifyingError
     Unexpected::TraitFor::Throwing
     Unexpected::TraitFor::TracingStacks
+    Unexpected::Types
 
 Incompatibilities
     There are no known incompatibilities in this module
@@ -95,6 +99,8 @@ Acknowledgements
     Larry Wall - For the Perl programming language
 
     Throwable::Error - Lifted the stack frame filter from here
+
+    John Sargent - Came up with the package name
 
 Author
     Peter Flanigan, "<pjfl@cpan.org>"
