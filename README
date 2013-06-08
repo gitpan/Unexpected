@@ -13,10 +13,6 @@ Synopsis
 
        has '+class' => default => __PACKAGE__;
 
-       sub message {
-          my $self = shift; return $self."\n\n".$self->trace->as_string."\n";
-       }
-
        package YourApp;
 
        use YourApp::Exception;
@@ -43,7 +39,7 @@ Synopsis
        catch { warn $_->message };
 
 Version
-    This documents version v0.2.$Rev: 1 $ of Unexpected
+    This documents version v0.3.$Rev: 1 $ of Unexpected
 
 Description
     An exception class that supports error messages with placeholders, a

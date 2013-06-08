@@ -1,9 +1,9 @@
-# @(#)$Ident: StringifyingError.pm 2013-06-06 01:21 pjf ;
+# @(#)$Ident: StringifyingError.pm 2013-06-08 12:59 pjf ;
 
 package Unexpected::TraitFor::StringifyingError;
 
 use namespace::sweep;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 1 $ =~ /\d+/gmx );
 
 use Moo::Role;
 use Unexpected::Types qw(ArrayRef Str);
@@ -22,6 +22,10 @@ around 'BUILDARGS' => sub {
    return $attr;
 };
 
+after 'BUILD' => sub { # Fixes 98c94be8-d01e-11e2-8bc5-3f0fbdbf7481 WTF?
+   my $self = shift; $self->as_string; return;
+};
+
 # Public methods
 sub as_string { # Expand positional parameters of the form [_<n>]
    my $self = shift; my $error = $self->error or return;
@@ -33,6 +37,10 @@ sub as_string { # Expand positional parameters of the form [_<n>]
    $error =~ s{ \[ _ (\d+) \] }{$args[ $1 - 1 ]}gmx;
 
    return $error;
+}
+
+sub message {
+   my $self = shift; return $self."\n\n".$self->trace->as_string."\n";
 }
 
 # Private functions
@@ -54,7 +62,7 @@ Unexpected::TraitFor::StringifyingError - Base role for exception handling
 
 =head1 Version
 
-This documents version v0.2.$Rev: 1 $ of
+This documents version v0.3.$Rev: 1 $ of
 L<Unexpected::TraitFor::StringifyingError>
 
 =head1 Synopsis
@@ -93,6 +101,12 @@ starting at one
    $error_text = $self->as_string;
 
 This is what the object stringifies to
+
+=head2 message
+
+   $error_text_and_stack_trace = $self->message;
+
+Returns the stringified object and a full stack trace
 
 =head2 __build_attr_from
 
