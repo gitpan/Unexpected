@@ -15,21 +15,21 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 26370e24cbfa2f6ceafeee561bef8c7da7be2f12 Build.PL
-SHA1 71d75790905e71b3c3577ad42735a2d30c5aa9bc Changes
+SHA1 3f91285e1349e4e8bdd32339027b712595230616 Changes
 SHA1 2b3ccb88f716f614f8af721a1c69dba0bcdbbb32 LICENSE
 SHA1 4b4f9442eef9725dd989d653b166ae284fe6c1bc MANIFEST
-SHA1 1d98a4b2921d7f2c741fd18d40a10367838682ab META.json
-SHA1 8a1ebc03ab4cfe26f69fba83b56a289eac50c5c8 META.yml
-SHA1 28b31b496ef185758e648c4f2e4b551bcae4e124 README
+SHA1 0315ccd9eae5d0d3f94d9a0bb5c22cb67eb641ee META.json
+SHA1 3d7ee42372a1554e0d52d3de81bbbd9a20c4f86c META.yml
+SHA1 2b5c20b1a32dd2cfc321aa9fc1ba9c1f66adf752 README
 SHA1 2dad6b015a19acb067ac9b3d677292796ecdb1c9 inc/Bob.pm
 SHA1 933ccdb9d4372a0ca630d832210397d5ea695f89 inc/CPANTesting.pm
 SHA1 3e461b4687dcea7680dc96761ecd703556759063 inc/SubClass.pm
-SHA1 0096c532ecdc0115afb4c73e83f24b0ed02f6689 lib/Unexpected.pm
-SHA1 218035af2af39f0e553c9e77779a5e1b2411c542 lib/Unexpected/TraitFor/ErrorLeader.pm
-SHA1 c10ce1803ccc4b74963f19b0cccfc3d77026984c lib/Unexpected/TraitFor/StringifyingError.pm
+SHA1 a2d1074de5414f9bdbdba00cee22971fb3c0d713 lib/Unexpected.pm
+SHA1 e888020911b3f240271d1cbe7be27708e890270a lib/Unexpected/TraitFor/ErrorLeader.pm
+SHA1 d4403905ba0e0b38f859e3ab8840801662386f5e lib/Unexpected/TraitFor/StringifyingError.pm
 SHA1 290c7dd61901e00cb17c732083a23326b9be0f76 lib/Unexpected/TraitFor/Throwing.pm
-SHA1 bf925f95c6f603be841f47f054a15fbe59aac070 lib/Unexpected/TraitFor/TracingStacks.pm
-SHA1 9f219941d5aa866fd8a6a622263574892b5dc336 lib/Unexpected/Types.pm
+SHA1 f5da42870cfbb7e8695450cc78c94ef0e023ce29 lib/Unexpected/TraitFor/TracingStacks.pm
+SHA1 95dd6f20a664f6c1cca6cdcda13aa83664eaec98 lib/Unexpected/Types.pm
 SHA1 8e65f1bcbe699485be07ea22c8465ad6e6dc371b t/01always_pass.t
 SHA1 7aaa60cd5630eb195d74b172282446be04f22883 t/02pod.t
 SHA1 3c3bd225e1bcf3692ee2a4047fc5f45cca1230ba t/03podcoverage.t
@@ -42,11 +42,11 @@ SHA1 d22fb824937ef2f5ff84b4b0de9fa2aac2664b7c t/10test_script.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQEcBAEBAgAGBQJRsy5UAAoJEK492j4Im1Bpe1gH/3CJ5n8cOSiUb62qEJWSZq+0
-y4XlewlVxwUxzOc8aVOUd3q0Dg7PtjWPYVeRlJEQ9gUXFNrnP+VoYBI3msqUgcrX
-6itVvjt6fABhLYJeoi22K8VF9bO8iqndc63khVcp26km1lryIl0eTFili5GJsXfu
-2Td4Rt0pwFMwWHaEhbEquFFuc6Ms99szjKpflDQSHzkpe70+vBvkYQPXm0g62OWi
-OCOZtGnWwBW/nqumv3fgXEKSarmA6DpflzxG6nQ8OPrTQgo7/XfxlPw9/C50VERl
-SMo7qLSIIDX4OYMmxwkhMi6fS/rsISJ7HPYdXbDe544lP570df0G4FyLj7NiBJY=
-=Gsnn
+iQEcBAEBAgAGBQJRtOqUAAoJEK492j4Im1BpsOkIAMDI0xdHtfvXtXcWk54gPy1T
+9F/LKAtmSaufQ/eYAyElv9dBJl/2iHatDlC3KQjN5Lq25dVhqDR4QyPrcQfRy/pN
+l22Rm+9aXjTd8+LTN0k68Q2JjpMjoz9k6aIuefUBHFJ2yU/t1SCebrqYe00iakg2
+Azdm9kghiNQXD/P/xwm3C7HvIbaFT58XkxPsAXPbyJyAtCqrh/3F1fvXslqBdBA8
+Q5TsbXr9x7gJKv28Cbi28EVuSNvJk6EKyBpcYWlNCezBzOPGPO/WtRhiqn1WufTB
+gpfX21j6v6fwJRBxEqcy3XBd8Qaybx/mN0m3ynQKvfwID/LCvPbMURacdFi6pvw=
+=5VgH
 -----END PGP SIGNATURE-----

@@ -1,9 +1,9 @@
-# @(#)$Ident: StringifyingError.pm 2013-06-08 12:59 pjf ;
+# @(#)$Ident: StringifyingError.pm 2013-06-09 20:28 pjf ;
 
 package Unexpected::TraitFor::StringifyingError;
 
 use namespace::sweep;
-use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 5 $ =~ /\d+/gmx );
 
 use Moo::Role;
 use Unexpected::Types qw(ArrayRef Str);
@@ -11,18 +11,23 @@ use Unexpected::Types qw(ArrayRef Str);
 # Object attributes (public)
 has 'args'  => is => 'ro', isa => ArrayRef, default => sub { [] };
 
-has 'error' => is => 'ro', isa => Str,      default => 'Unknown error';
+has 'error' => is => 'ro', isa => Str,      default => sub { 'Unknown error' };
 
 # Construction
 around 'BUILDARGS' => sub {
-   my ($next, $self, @args) = @_; my $attr = __build_attr_from( @args );
+   my ($orig, $self, @args) = @_; my $attr = __build_attr_from( @args );
 
    $attr->{error} and $attr->{error} .= q() and chomp $attr->{error};
 
    return $attr;
 };
 
-after 'BUILD' => sub { # Fixes 98c94be8-d01e-11e2-8bc5-3f0fbdbf7481 WTF?
+after 'BUILD' => sub {
+   # Fixes 98c94be8-d01e-11e2-8bc5-3f0fbdbf7481 WTF? Stringify fails.
+   # Bug only happens when Moose class inherits from Moo class which
+   # uses overload string. Moose class inherits from Moose class which
+   # has consumed a ::Role::WithOverloading works. Moo inherits from
+   # Moo also works
    my $self = shift; $self->as_string; return;
 };
 
@@ -62,7 +67,7 @@ Unexpected::TraitFor::StringifyingError - Base role for exception handling
 
 =head1 Version
 
-This documents version v0.3.$Rev: 1 $ of
+This documents version v0.3.$Rev: 5 $ of
 L<Unexpected::TraitFor::StringifyingError>
 
 =head1 Synopsis
