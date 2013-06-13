@@ -24,22 +24,22 @@ no_index:
 provides:
   Unexpected:
     file: lib/Unexpected.pm
-    version: v0.3.6
+    version: v0.3.7
   Unexpected::TraitFor::ErrorLeader:
     file: lib/Unexpected/TraitFor/ErrorLeader.pm
     version: v0.3.5
   Unexpected::TraitFor::StringifyingError:
     file: lib/Unexpected/TraitFor/StringifyingError.pm
-    version: v0.3.6
+    version: v0.3.7
   Unexpected::TraitFor::Throwing:
     file: lib/Unexpected/TraitFor/Throwing.pm
     version: v0.3.6
   Unexpected::TraitFor::TracingStacks:
     file: lib/Unexpected/TraitFor/TracingStacks.pm
-    version: v0.3.5
+    version: v0.3.7
   Unexpected::Types:
     file: lib/Unexpected/Types.pm
-    version: v0.3.5
+    version: v0.3.7
 recommends:
   App::cpanminus: 1.6005
 requires:
@@ -54,4 +54,4 @@ resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unexpected
   homepage: http://www.roxsoft.co.uk
   license: http://dev.perl.org/licenses/
-version: v0.3.6
+version: v0.3.7

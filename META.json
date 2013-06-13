@@ -52,7 +52,7 @@
    "provides" : {
       "Unexpected" : {
          "file" : "lib/Unexpected.pm",
-         "version" : "v0.3.6"
+         "version" : "v0.3.7"
       },
       "Unexpected::TraitFor::ErrorLeader" : {
          "file" : "lib/Unexpected/TraitFor/ErrorLeader.pm",
@@ -60,7 +60,7 @@
       },
       "Unexpected::TraitFor::StringifyingError" : {
          "file" : "lib/Unexpected/TraitFor/StringifyingError.pm",
-         "version" : "v0.3.6"
+         "version" : "v0.3.7"
       },
       "Unexpected::TraitFor::Throwing" : {
          "file" : "lib/Unexpected/TraitFor/Throwing.pm",
@@ -68,11 +68,11 @@
       },
       "Unexpected::TraitFor::TracingStacks" : {
          "file" : "lib/Unexpected/TraitFor/TracingStacks.pm",
-         "version" : "v0.3.5"
+         "version" : "v0.3.7"
       },
       "Unexpected::Types" : {
          "file" : "lib/Unexpected/Types.pm",
-         "version" : "v0.3.5"
+         "version" : "v0.3.7"
       }
    },
    "release_status" : "stable",
@@ -85,5 +85,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "v0.3.6"
+   "version" : "v0.3.7"
 }
