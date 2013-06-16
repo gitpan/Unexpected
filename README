@@ -39,13 +39,13 @@ Synopsis
        catch { warn $_->message };
 
 Version
-    This documents version v0.3.$Rev: 7 $ of Unexpected
+    This documents version v0.3.$Rev: 11 $ of Unexpected
 
 Description
     An exception class that supports error messages with placeholders, a
-    "throw" in Unexpected::TraitFor::Throwing method with automatic re-throw
-    upon detection of self, conditional throw if an exception was caught and
-    a simplified stacktrace
+    throw method with automatic re-throw upon detection of self, conditional
+    throw if an exception was caught and a simplified stack trace in
+    addition to the error message with full stack trace
 
 Configuration and Environment
     Applies exception roles to the exception base class Unexpected. See
@@ -88,8 +88,12 @@ Incompatibilities
     There are no known incompatibilities in this module
 
 Bugs and Limitations
-    There are no known bugs in this module. Please report problems to the
-    address below. Patches are welcome
+    Throwable did not let me use the stack trace filter directly, it's
+    wrapped inside an attribute constructor. There was nothing else in
+    Throwable that would not have been overridden
+
+    There are no known bugs in this module. Please report problems to
+    http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unexpected. Patches are welcome
 
 Acknowledgements
     Larry Wall - For the Perl programming language

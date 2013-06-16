@@ -14,22 +14,22 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 26370e24cbfa2f6ceafeee561bef8c7da7be2f12 Build.PL
-SHA1 b7ba2de68b0615eed11b41b6181621cb0ad582fa Changes
+SHA1 9cb0b2cba8a6330f96f22422474c00d5018a9cfd Build.PL
+SHA1 609b45c9b00b727c2825c01aba1b49a77d8bfe60 Changes
 SHA1 2b3ccb88f716f614f8af721a1c69dba0bcdbbb32 LICENSE
-SHA1 4b4f9442eef9725dd989d653b166ae284fe6c1bc MANIFEST
-SHA1 cea37cfb366df584df474bcf621ed1383453ebbc META.json
-SHA1 9375c0956868e513a3e2c505b623582179396497 META.yml
-SHA1 c2aee122b71e8d462e3c9b654275b2e337429a40 README
+SHA1 0c82f6a0749233626a1e66a39a0187ff6e65ceb7 MANIFEST
+SHA1 fd151f99cf3c640c5da969ec7d0884a9b04f550f META.json
+SHA1 991703fc4d483327d24dd253b85451f9c1bf891d META.yml
+SHA1 731ca107e1dfbf39e40995c21c385bdd8f9054ea README
 SHA1 2dad6b015a19acb067ac9b3d677292796ecdb1c9 inc/Bob.pm
 SHA1 cfdcc37bd0f355aef8fe93e7494fb27d6ccab387 inc/CPANTesting.pm
 SHA1 3e461b4687dcea7680dc96761ecd703556759063 inc/SubClass.pm
-SHA1 4b2c426705a52051b903f883909a8f97248834ca lib/Unexpected.pm
-SHA1 e888020911b3f240271d1cbe7be27708e890270a lib/Unexpected/TraitFor/ErrorLeader.pm
-SHA1 a11d9435adf48d40ee264226688ead8561ec623c lib/Unexpected/TraitFor/StringifyingError.pm
-SHA1 164d86ffc9bf3c4b0db47fa1a34befe5896ede9c lib/Unexpected/TraitFor/Throwing.pm
-SHA1 6cf95d4a7ede33844e330c3a61ffe7a8dbc7fa7b lib/Unexpected/TraitFor/TracingStacks.pm
-SHA1 90a73429a581f3efd8f94e2ad75efa2aef1bc10f lib/Unexpected/Types.pm
+SHA1 731e4d8196b58f0f1e96b58b9e67bb25f6efa6f5 lib/Unexpected.pm
+SHA1 4275d9392998daca86e68437c2e61ac4f02d2172 lib/Unexpected/TraitFor/ErrorLeader.pm
+SHA1 1876107dfa247af53b3e7a043483e2014cee468b lib/Unexpected/TraitFor/StringifyingError.pm
+SHA1 6d3c679ce5503f0db3de133d6cecdd0accfdfdb0 lib/Unexpected/TraitFor/Throwing.pm
+SHA1 ae6a7e20cd8ac0f6d6364c80a41858dee995f6c6 lib/Unexpected/TraitFor/TracingStacks.pm
+SHA1 0ceaaed556d2d3561afda8e78cbb017a0c1a6023 lib/Unexpected/Types.pm
 SHA1 8e65f1bcbe699485be07ea22c8465ad6e6dc371b t/01always_pass.t
 SHA1 7aaa60cd5630eb195d74b172282446be04f22883 t/02pod.t
 SHA1 3c3bd225e1bcf3692ee2a4047fc5f45cca1230ba t/03podcoverage.t
@@ -39,14 +39,15 @@ SHA1 0e78cb9311d35bc6b7753391f270772dd0694933 t/06yaml.t
 SHA1 8679135c21b0ced445d7dd3c11181c0816257fa8 t/07podspelling.t
 SHA1 ca196f4f2a2b8aebdb672453c31652d20817850c t/08memory_leak.t
 SHA1 99bff9d65220dfd34c0052e24d8c74a31cc959ca t/10test_script.t
+SHA1 0b053b05aa0e4779c954cfb53ac29c17088bc065 t/20types.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQEcBAEBAgAGBQJRui9dAAoJEK492j4Im1BplQwIAMMpQ+Graa7KqG0FVqnwyMqA
-IHvn7kRuip9EWOm8wTmbYNc3Bqihlda+fwgWt4qvf5a7j9fn7IP/iFW7Lgvfm+Cg
-nV58s9GUsrzMWOMkkVtz8w98prvPJm+MyHzSB46kAxlyF6Ud1HvrOK55yeCMwLMB
-vR0bZzY/8gbmHsGHccq7l9Eiaj/WcYuYUFuQmT4zzfCFk2cVRet8nOnuMY0XgavC
-n3VBxBzMyMzJbzxORe4BURAUNLm0tgAOH1xVHVRYmE0sO7UqLxJnpA+KYB5CChUs
-XjQQ5JlKn0RAr94efeI0e1FcUBp/k6ssgSLCM3gtTNC+FIKc6geKdz2aXXdh7AY=
-=ffZQ
+iQEcBAEBAgAGBQJRvgrsAAoJEK492j4Im1BpIUwH/3RWvKAaaTz4G70iMu65pLVK
+hZyfN7fg9ne4CYtQuFif7mCwY20uRAMGQcjRrClmZSYAONLzKmTG7EStE7z3BYRn
+8kGEwT/K4+qGNcfXVv4xfCkGeJU0qjBmAVkCPafLPiYAbZtWPXxLLyytz0c7XN9b
+k9191wPXN+04W5mluuqJfAM4/8wNyJX+9YfdEoInaCl9nHVbUXHFeyCi4aPoGTNB
+YC83S0UVJSKCpdzcmqSi3IIakx/oPb0NzCuMMy65hRyUPJKa5okvf2oPsEFafhP1
+LpvlVIaIhnMA2UvYoh/mJNcFiEjLCpQ+B9M4yNb0gKIaYrYsztOm4XmL3FHoEpw=
+=g/Lt
 -----END PGP SIGNATURE-----

@@ -1,15 +1,15 @@
-# @(#)Ident: Unexpected.pm 2013-06-13 16:33 pjf ;
+# @(#)Ident: Unexpected.pm 2013-06-16 15:13 pjf ;
 
 package Unexpected;
 
+use 5.01;
 use namespace::sweep;
 use overload '""' => 'as_string', fallback => 1;
-use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 7 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 11 $ =~ /\d+/gmx );
 
-use 5.01;
 use Moo;
-use Scalar::Util      qw(blessed);
-use Unexpected::Types qw(NonEmptySimpleStr);
+use Scalar::Util      qw( blessed );
+use Unexpected::Types qw( NonEmptySimpleStr );
 
 with q(Unexpected::TraitFor::StringifyingError);
 with q(Unexpected::TraitFor::Throwing);
@@ -75,14 +75,15 @@ Unexpected - Exception class composed from traits
 
 =head1 Version
 
-This documents version v0.3.$Rev: 7 $ of L<Unexpected>
+This documents version v0.3.$Rev: 11 $ of L<Unexpected>
 
 =head1 Description
 
 An exception class that supports error messages with placeholders, a
-L<Unexpected::TraitFor::Throwing/throw> method with
-automatic re-throw upon detection of self, conditional throw if an
-exception was caught and a simplified stacktrace
+L<throw|Unexpected::TraitFor::Throwing/throw> method with automatic
+re-throw upon detection of self, conditional throw if an exception was
+caught and a simplified stack trace in addition to the error message
+with full stack trace
 
 =head1 Configuration and Environment
 
@@ -149,9 +150,13 @@ There are no known incompatibilities in this module
 
 =head1 Bugs and Limitations
 
-There are no known bugs in this module.
-Please report problems to the address below.
-Patches are welcome
+L<Throwable> did not let me use the stack trace filter directly, it's wrapped
+inside an attribute constructor. There was nothing else in L<Throwable>
+that would not have been overridden
+
+There are no known bugs in this module.  Please report problems to
+http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unexpected. Patches
+are welcome
 
 =head1 Acknowledgements
 
