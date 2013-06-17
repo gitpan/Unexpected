@@ -4,6 +4,7 @@ inc/Bob.pm
 inc/CPANTesting.pm
 inc/SubClass.pm
 lib/Unexpected.pm
+lib/Unexpected/Functions.pm
 lib/Unexpected/TraitFor/ErrorLeader.pm
 lib/Unexpected/TraitFor/StringifyingError.pm
 lib/Unexpected/TraitFor/Throwing.pm
