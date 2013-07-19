@@ -14,41 +14,41 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 2843d628d8d73228625d744afdf24fa9bb3dfc50 Build.PL
-SHA1 4925619f544d2b3bbdf693aac79a561fa2f6496a Changes
+SHA1 9a479c659f36750ccdf4829394f154e64977cb70 Build.PL
+SHA1 844c89c3013cec44c63d6afb7daad18a6fac2055 Changes
 SHA1 2b3ccb88f716f614f8af721a1c69dba0bcdbbb32 LICENSE
 SHA1 1dd18aa6406059eb937bb89399cf49aed581c04c MANIFEST
-SHA1 0fdc3264f4097cf791bd526dfec53ef6f472fb0e META.json
-SHA1 bcfad6e2ad1d570b855debe81520799be5f2f5c4 META.yml
-SHA1 185a4091ac10eae941cae8132f81e9a6301c49f0 README
+SHA1 36d53c8ba624f869d5fdf5824e1293048a5a6c53 META.json
+SHA1 74f4b8d9e152e7f953c0b6184f974d24ee0f334d META.yml
+SHA1 8a4c4b11daee20826b899d0b6aed002e9f5d0902 README
 SHA1 2dad6b015a19acb067ac9b3d677292796ecdb1c9 inc/Bob.pm
 SHA1 cfdcc37bd0f355aef8fe93e7494fb27d6ccab387 inc/CPANTesting.pm
 SHA1 3e461b4687dcea7680dc96761ecd703556759063 inc/SubClass.pm
-SHA1 1e8f03af1c6b9ec83962cf24d5bf615d474830f3 lib/Unexpected.pm
-SHA1 3f7787cc760a001eacf8f5792484f9bee94af8f2 lib/Unexpected/Functions.pm
-SHA1 cd8e0b1f859ae434fd82cd54f76849342243b7a7 lib/Unexpected/TraitFor/ErrorLeader.pm
-SHA1 a66a90d0c93963abf5736c91950d2e554bd3dcb6 lib/Unexpected/TraitFor/StringifyingError.pm
-SHA1 194da8c29bb482f14e5e50c256ee84e1966ca986 lib/Unexpected/TraitFor/Throwing.pm
-SHA1 a7081fbfc54bd45c8234a460152c2c9a735e38fc lib/Unexpected/TraitFor/TracingStacks.pm
-SHA1 45ab4caed54b0b3c38899a0e8ea6d9975a71f005 lib/Unexpected/Types.pm
+SHA1 fe3fd574c9495a6fd223f22db1696d8bbd3fb182 lib/Unexpected.pm
+SHA1 5401c6a553044bc64799141e920ca5e76e90c07d lib/Unexpected/Functions.pm
+SHA1 85639e737fa994d59fa2defda36b95bb3cb1573f lib/Unexpected/TraitFor/ErrorLeader.pm
+SHA1 473c97776b505b5536df00c7521427d929542413 lib/Unexpected/TraitFor/StringifyingError.pm
+SHA1 93540ea71abf676894e830925e48cff525772ab3 lib/Unexpected/TraitFor/Throwing.pm
+SHA1 39a7ae1989b01a85b2273d0d6569fc950e7ee74e lib/Unexpected/TraitFor/TracingStacks.pm
+SHA1 8ffb519150b5f083464dc598c8d5169e997552cb lib/Unexpected/Types.pm
 SHA1 8e65f1bcbe699485be07ea22c8465ad6e6dc371b t/01always_pass.t
-SHA1 24ede1d206a341db0e42277a433d90a2a28e051e t/02pod.t
-SHA1 22cec1c9cfbb2dc4d8e714e83fbb8bcad3b562ef t/03podcoverage.t
-SHA1 7e3a60b997f911eb10c72b87ed8739fa5cfc395d t/04critic.t
-SHA1 af85c25c70c13c88f06a7ed21ef3082eca152634 t/05kwalitee.t
-SHA1 a7b421c90e74abc5afd3967befbbcfa9875bc6b5 t/06yaml.t
-SHA1 9d490170bed2fa22aee0cff19201fda3f33f61db t/07podspelling.t
-SHA1 638a9c3665e24aec581634d0dc4faeb14f489a1a t/08memory_leak.t
-SHA1 c3a659cbda92ca8473650a1c4c1aed240c894ef2 t/10test_script.t
-SHA1 0b5004d7a1403ef01e0abe53e389f46a5bba0fa7 t/20types.t
+SHA1 37c12679f025928c87f2763116abc424c27d89e9 t/02pod.t
+SHA1 903707251bf887e039bfd670df59e1423225f2c8 t/03podcoverage.t
+SHA1 4054bfff60a24d9ce870e3afe528d0dd1eb246b3 t/04critic.t
+SHA1 f61960f24818dd94f28d891d26474c2794fc0010 t/05kwalitee.t
+SHA1 090db522c434895960baf3ed4f7dbc62d8fd9c41 t/06yaml.t
+SHA1 d3e952b56fcc3193dfcf75634af45e84ccb123f0 t/07podspelling.t
+SHA1 6fde5d242f4655c67dafaa5158c29519aa4d6e85 t/08memory_leak.t
+SHA1 7afcb68d96f13a23223d422fe45280b0b17fc02e t/10test_script.t
+SHA1 208c7460c7b4cb0bdc83f4a918e8bd34e413af78 t/20types.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQEcBAEBAgAGBQJRxf53AAoJEK492j4Im1BpOuwH/2aAQr4uUabR+xJbYyb/85FD
-SUce/3yUiNy9wbOnCkOemgyldlsge0q4zj3D6jhJLhabVwlh5OQFOSCdLG2qcXoK
-uCy4uAsuRejpGPSu1viQ3hoIk23yV87XPtVvtyTmb+rPk5BZg2TLeTcXygag0dNV
-9isrSM1azv17W4MH3UIGTEgnqtY5NkZgJVIQkiEmXOubXj6hi68tEhE3OAbdUsx0
-3GOS+c1nS+LLPE2yG32VqqFnKEKn0SQu836w/2ALmPidaN3REvid2iiIGxFncb/E
-2vMaqMxTT1rgJIVJWAq3jVTr5+k0RkOQN08Gl/x4i9z0yxBHeZEzLZWS1PgtkJc=
-=r4M/
+iQEcBAEBAgAGBQJR6UmhAAoJEK492j4Im1Bpn88H/3B+41YqXiQLNUS0C6LAxmT0
+WN+UsSJ2p4fRnZgKSEbpXXPkOgYSq3E/oRcpiw55NohI2BQ5Y63ibcY6hejcDeGL
+2MAnvLSpGtSzSEbPU6YgEQ54cPJPF0IEs5tS/9GQLJh9BGR1ghnqLuP+IYUtWYf5
+xvc6v81nWoQKHL/U78b0kPjenDkyMad4gEMvnwup4lvr6eok73mNazsK9YQR1Td1
+cVV22RxSVQpl6F0m1oFP+LG5vQTGfIcu1026BtTVamb8OnzxDvPPY6KBAO764lDI
+U5dDNJCCCMQmL10mHSY4HEliIXAB1DF5QOYClODTgz/j2NQE0nptFVOVid7AyLE=
+=vSSp
 -----END PGP SIGNATURE-----
