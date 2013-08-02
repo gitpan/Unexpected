@@ -25,7 +25,7 @@ no_index:
 provides:
   Unexpected:
     file: lib/Unexpected.pm
-    version: v0.5.7
+    version: v0.5.8
   Unexpected::Functions:
     file: lib/Unexpected/Functions.pm
     version: v0.5.1
@@ -34,13 +34,13 @@ provides:
     version: v0.5.1
   Unexpected::TraitFor::StringifyingError:
     file: lib/Unexpected/TraitFor/StringifyingError.pm
-    version: v0.5.1
+    version: v0.5.8
   Unexpected::TraitFor::Throwing:
     file: lib/Unexpected/TraitFor/Throwing.pm
-    version: v0.5.1
+    version: v0.5.8
   Unexpected::TraitFor::TracingStacks:
     file: lib/Unexpected/TraitFor/TracingStacks.pm
-    version: v0.5.1
+    version: v0.5.8
   Unexpected::Types:
     file: lib/Unexpected/Types.pm
     version: v0.5.1
@@ -58,4 +58,4 @@ resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unexpected
   homepage: http://www.roxsoft.co.uk
   license: http://dev.perl.org/licenses/
-version: v0.5.7
+version: v0.5.8
