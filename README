@@ -39,7 +39,7 @@ Synopsis
        catch { warn $_->message };
 
 Version
-    This documents version v0.5.$Rev: 8 $ of Unexpected
+    This documents version v0.6.$Rev: 1 $ of Unexpected
 
 Description
     An exception class that supports error messages with placeholders, a
@@ -62,7 +62,8 @@ Configuration and Environment
 
 Subroutines/Methods
   BUILDARGS
-    Placeholder to shut Pod::Coverage up
+    Customizes the constructor. Accepts either a coderef, an object ref, a
+    hashref, a scalar, or a list of key / value pairs
 
   BUILD
     Does nothing placeholder that allows the applied roles to modify it
@@ -73,7 +74,8 @@ Subroutines/Methods
     Class method which detects instances of this exception class
 
 Diagnostics
-    None
+    String overload is performed in this class as opposed to the stringify
+    error role since overloading is not supported in Moo::Role
 
 Dependencies
     namespace::sweep
