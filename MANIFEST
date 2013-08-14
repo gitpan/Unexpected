@@ -1,8 +1,11 @@
 Build.PL
 Changes
-inc/Bob.pm
-inc/CPANTesting.pm
-inc/SubClass.pm
+LICENSE
+MANIFEST
+META.json
+META.yml
+README
+SIGNATURE
 lib/Unexpected.pm
 lib/Unexpected/Functions.pm
 lib/Unexpected/TraitFor/ErrorLeader.pm
@@ -10,11 +13,6 @@ lib/Unexpected/TraitFor/StringifyingError.pm
 lib/Unexpected/TraitFor/Throwing.pm
 lib/Unexpected/TraitFor/TracingStacks.pm
 lib/Unexpected/Types.pm
-LICENSE
-MANIFEST			This list of files
-META.json
-META.yml
-README
 t/01always_pass.t
 t/02pod.t
 t/03podcoverage.t
@@ -25,4 +23,3 @@ t/07podspelling.t
 t/08memory_leak.t
 t/10test_script.t
 t/20types.t
-SIGNATURE    Added here by Module::Build
