@@ -17,6 +17,8 @@ Module::Build->subclass( code => $code )->new(
   'notes'       => { min_perl_version => $perl_ver },
   'build_requires' => {
     'Module::Build' => '0.4004',
+    'Moo' => '1.002',
+    'Test::Requires' => '0.06',
     'version' => '0.88'
   },
   'configure_requires' => {
@@ -24,7 +26,12 @@ Module::Build->subclass( code => $code )->new(
     'version' => '0.88'
   },
   'requires' => {
-    'Class::Usul' => 'v0.22.0'
+    'Class::Load' => '0.18',
+    'Devel::StackTrace' => '1.26',
+    'Moo' => '1.002',
+    'Type::Tiny' => '0.012',
+    'namespace::clean' => '0.23',
+    'namespace::sweep' => '0.006'
   },
 
 )->create_build_script;
