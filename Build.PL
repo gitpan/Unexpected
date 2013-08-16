@@ -1,4 +1,4 @@
-# @(#)$Ident: Build.PL 2013-08-14 19:20 pjf ;
+# @(#)$Ident: DZ_Build.PL 2013-08-15 13:04 pjf ;
 
 use strict;
 use warnings;
@@ -7,13 +7,14 @@ use Module::Build;
 
 sub whimper { print {*STDOUT} $_[ 0 ]."\n"; exit 0 }
 
-my $code = do { local $/; <DATA> }; my $perl_ver = 5.010001;
+my $perl_ver = 5.008;
+my $name     = 'Unexpected'; $name =~ s{ - }{::}gmx;
 
 $] >= $perl_ver or $ENV{PERL5_CPANPLUS_IS_VERSION}
    or whimper "Minimum required Perl version is ${perl_ver}";
 
-Module::Build->subclass( code => $code )->new(
-  'module_name' => 'Unexpected',
+Module::Build->subclass( code => do { local $/; <DATA> } )->new(
+  'module_name' => $name,
   'notes'       => { min_perl_version => $perl_ver },
   'build_requires' => {
     'Module::Build' => '0.4004',
@@ -31,7 +32,8 @@ Module::Build->subclass( code => $code )->new(
     'Moo' => '1.002',
     'Type::Tiny' => '0.012',
     'namespace::clean' => '0.23',
-    'namespace::sweep' => '0.006'
+    'namespace::sweep' => '0.006',
+    'perl' => '5.008'
   },
 
 )->create_build_script;

@@ -43,38 +43,39 @@
             "Moo" : "1.002",
             "Type::Tiny" : "0.012",
             "namespace::clean" : "0.23",
-            "namespace::sweep" : "0.006"
+            "namespace::sweep" : "0.006",
+            "perl" : "5.008"
          }
       }
    },
    "provides" : {
       "Unexpected" : {
          "file" : "lib/Unexpected.pm",
-         "version" : "v0.7.2"
+         "version" : "v0.7.5"
       },
       "Unexpected::Functions" : {
          "file" : "lib/Unexpected/Functions.pm",
-         "version" : "v0.7.2"
+         "version" : "v0.7.1"
       },
       "Unexpected::TraitFor::ErrorLeader" : {
          "file" : "lib/Unexpected/TraitFor/ErrorLeader.pm",
-         "version" : "v0.7.2"
+         "version" : "v0.7.1"
       },
       "Unexpected::TraitFor::StringifyingError" : {
          "file" : "lib/Unexpected/TraitFor/StringifyingError.pm",
-         "version" : "v0.7.2"
+         "version" : "v0.7.1"
       },
       "Unexpected::TraitFor::Throwing" : {
          "file" : "lib/Unexpected/TraitFor/Throwing.pm",
-         "version" : "v0.7.2"
+         "version" : "v0.7.1"
       },
       "Unexpected::TraitFor::TracingStacks" : {
          "file" : "lib/Unexpected/TraitFor/TracingStacks.pm",
-         "version" : "v0.7.2"
+         "version" : "v0.7.1"
       },
       "Unexpected::Types" : {
          "file" : "lib/Unexpected/Types.pm",
-         "version" : "v0.7.2"
+         "version" : "v0.7.1"
       }
    },
    "release_status" : "stable",
@@ -88,6 +89,6 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.7.2"
+   "version" : "0.7.5"
 }
 
