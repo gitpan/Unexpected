@@ -7,7 +7,7 @@ use Module::Build;
 
 sub whimper { print {*STDOUT} $_[ 0 ]."\n"; exit 0 }
 
-my $perl_ver = 5.008;
+my $perl_ver = 5.010001;
 my $name     = 'Unexpected'; $name =~ s{ - }{::}gmx;
 
 $] >= $perl_ver or $ENV{PERL5_CPANPLUS_IS_VERSION}
@@ -33,7 +33,7 @@ Module::Build->subclass( code => do { local $/; <DATA> } )->new(
     'Type::Tiny' => '0.012',
     'namespace::clean' => '0.23',
     'namespace::sweep' => '0.006',
-    'perl' => '5.008'
+    'perl' => '5.010001'
   },
 
 )->create_build_script;
