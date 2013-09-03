@@ -39,7 +39,7 @@ Synopsis
        catch { warn $_->message };
 
 Version
-    This documents version v0.10.$Rev: 1 $ of Unexpected
+    This documents version v0.12.$Rev: 1 $ of Unexpected
 
 Description
     An exception class that supports error messages with placeholders, a
@@ -53,12 +53,6 @@ Configuration and Environment
 
     Error objects are overloaded to stringify to the full error message plus
     a leader if the optional "ErrorLeader" role has been applied
-
-    Defines these attributes;
-
-    "class"
-       Defaults to "__PACKAGE__". Can be used to differentiate different
-       classes of error
 
 Subroutines/Methods
   BUILDARGS
@@ -81,10 +75,10 @@ Dependencies
     namespace::sweep
     overload
     Moo
+    Unexpected::TraitFor::Exception::Classes
     Unexpected::TraitFor::StringifyingError
     Unexpected::TraitFor::Throwing
     Unexpected::TraitFor::TracingStacks
-    Unexpected::Types
 
 Incompatibilities
     There are no known incompatibilities in this module

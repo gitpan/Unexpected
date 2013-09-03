@@ -9,6 +9,7 @@ SIGNATURE
 lib/Unexpected.pm
 lib/Unexpected/Functions.pm
 lib/Unexpected/TraitFor/ErrorLeader.pm
+lib/Unexpected/TraitFor/ExceptionClasses.pm
 lib/Unexpected/TraitFor/StringifyingError.pm
 lib/Unexpected/TraitFor/Throwing.pm
 lib/Unexpected/TraitFor/TracingStacks.pm

@@ -1,8 +1,8 @@
-# @(#)Ident: 10test_script.t 2013-08-24 09:26 pjf ;
+# @(#)Ident: 10test_script.t 2013-08-28 22:42 pjf ;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.10.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.12.%d', q$Rev: 1 $ =~ /\d+/gmx );
 use File::Spec::Functions   qw( catdir updir );
 use FindBin                 qw( $Bin );
 use lib                 catdir( $Bin, updir, 'lib' );
@@ -27,6 +27,7 @@ use Test::Requires { Moo => 1.002 };
 
    extends 'Unexpected';
    with    'Unexpected::TraitFor::ErrorLeader';
+   with    'Unexpected::TraitFor::ExceptionClasses';
 
    1;
 }
@@ -139,18 +140,64 @@ $line1 = __LINE__; eval {
                   class => 'nonDefault',
                   error => 'cat: [_1] cannot open: [_2]', ) }; $e = _eval_error;
 
-is $e->class, 'nonDefault', 'Specific error classification';
-like $e, qr{ main\[ $line1 / \d+ \]:\scat:\sflap\scannot\sopen:\s\[\?\] }mx,
-   'Placeholer substitution';
+eval { $e->class}; $e = _eval_error;
+
+like $e, qr{ nonDefault \s+ does \s+ not \s+ exist }mx,
+   'Non existant exception class';
+
+eval { $class->has_exception() }; $e = _eval_error;
+
+like $e, qr{ Exception \s+ class \s+ undefined }mx, 'Undefined exception class';
+
+eval { $class->has_exception( 'A', 'Unknown' ) }; $e = _eval_error;
+
+like $e, qr{ Unknown \s+ does \s+ not \s+ exist }mx,
+   'Parent class does not exist';
+
+$class->has_exception( 'A' );
+
+eval { $class->has_exception( 'A', 'Unexpected' ) }; $e = _eval_error;
+
+like $e, qr{ A \s+ already \s+ exists }mx,
+   'Exception class already exists';
 
 $line1 = __LINE__; eval {
    $class->throw( args  => [ 'flap' ],
-                  class => 'testPrevious',
+                  class => 'A',
                   error => 'cat: [_1] cannot open: [_2]', ) }; $e = _eval_error;
 
-is $e->class, 'testPrevious', 'Current exception classification';
+is $e->class, 'A', 'Specific error classification';
+like $e, qr{ main\[ $line1 / \d+ \]:\scat:\sflap\scannot\sopen:\s\[\?\] }mx,
+   'Placeholer substitution';
 
-is $e->previous_exception->class, 'nonDefault', 'Previous exception';
+$class->has_exception( 'B', [ 'A' ] );
+$class->has_exception( 'C', { parents => 'A' } );
+$class->has_exception( 'D', [ qw( A B ) ] );
+$class->has_exception( 'E', 'A' );
+
+$line1 = __LINE__; eval {
+   $class->throw( args  => [ 'flap' ],
+                  class => 'D',
+                  error => 'cat: [_1] cannot open: [_2]', ) }; $e = _eval_error;
+
+is $e->class, 'D', 'Current exception classification';
+
+is $e->previous_exception->class, 'A', 'Previous exception';
+
+is $e->instance_of(), 0, 'Null class is false';
+
+is $e->instance_of( 'A' ), 1, 'Inherits exception class';
+
+is $e->instance_of( 'E' ), 0, 'Does not match exception class';
+
+eval { $e->instance_of( 'nonExistant' ) }; $e = _eval_error;
+
+like $e, qr{ nonExistant \s+ does \s+ not \s+ exist }mx,
+   'Non existant exception class throws';
+
+eval { $class->throw( error => 'PracticeKill', level => 99 )}; $e = _eval_error;
+
+like $e, qr{ /1 }mx, 'Level greater than number of frames';
 
 $class->ignore_class( 'main' );
 
