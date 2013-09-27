@@ -29,6 +29,7 @@ Module::Build->subclass( code => do { local $/; <DATA> } )->new(
   'requires' => {
     'Class::Load' => '0.18',
     'Devel::StackTrace' => '1.26',
+    'Exporter::Tiny' => '0.026',
     'Moo' => '1.003',
     'Type::Tiny' => '0.012',
     'namespace::clean' => '0.23',
