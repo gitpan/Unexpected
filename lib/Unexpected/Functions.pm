@@ -1,13 +1,46 @@
-# @(#)Ident: Functions.pm 2013-09-27 12:14 pjf ;
+# @(#)Ident: Functions.pm 2013-11-21 15:38 pjf ;
 
 package Unexpected::Functions;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.14.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.15.%d', q$Rev: 1 $ =~ /\d+/gmx );
 use parent                  qw( Exporter::Tiny );
 
-our @EXPORT = qw( build_attr_from inflate_message );
+use Sub::Install qw( install_sub );
+
+our @EXPORT_OK = qw( build_attr_from inflate_message );
+
+my $Should_Quote = 1;
+
+# Package methods
+sub import {
+   my $class       = shift;
+   my $global_opts = { $_[ 0 ] && ref $_[ 0 ] eq 'HASH' ? %{+ shift } : () };
+   my $ex_class    = delete $global_opts->{exception_class};
+   # uncoverable condition false
+   # uncoverable condition left
+   my $target      = $global_opts->{into} ||= caller;
+   my $ex_subr     = $target->can( 'EXCEPTION_CLASS' );
+   my @want        = @_;
+   my @args        = ();
+
+   $ex_subr and $ex_class = $ex_subr->();
+
+   for my $sym (@want) {
+      if ($ex_class and $ex_class->is_exception( $sym )) {
+         install_sub { as => $sym, code => sub { $sym }, into => $target, };
+      }
+      else { push @args, $sym }
+   }
+
+   $class->SUPER::import( $global_opts, @args );
+   return;
+}
+
+sub quote_bind_values {
+   defined $_[ 1 ] and $Should_Quote = $_[ 1 ]; return $Should_Quote;
+}
 
 # Public functions
 sub build_attr_from { # Coerce a hash ref from whatever was passed
@@ -18,16 +51,20 @@ sub build_attr_from { # Coerce a hash ref from whatever was passed
 }
 
 sub inflate_message { # Expand positional parameters of the form [_<n>]
-   my $msg = shift; my @args = __inflate_placeholders( \@_ );
+   my $msg = shift; my @args = __inflate_placeholders( @_ );
 
    $msg =~ s{ \[ _ (\d+) \] }{$args[ $1 - 1 ]}gmx; return $msg;
 }
 
 # Private functions
 sub __inflate_placeholders { # Substitute visible strings for null and undef
-   return map { (length) ? $_ : '[]' }
-          map { $_ // '[?]'          } @{ $_[ 0 ] },
-          map { '[?]'                } 0 .. 9;
+   return map { __quote_maybe( (length) ? $_ : '[]' ) }
+          map { $_ // '[?]' } @_,
+          map {       '[?]' } 0 .. 9;
+}
+
+sub __quote_maybe {
+   return $Should_Quote ? "'".$_[ 0 ]."'" : $_[ 0 ];
 }
 
 1;
@@ -48,11 +85,16 @@ Unexpected::Functions - A collection of functions used in this distribution
 
 =head1 Version
 
-This documents version v0.14.$Rev: 1 $ of L<Unexpected::Functions>
+This documents version v0.15.$Rev: 1 $ of L<Unexpected::Functions>
 
 =head1 Description
 
 A collection of functions used in this distribution
+
+Also exports any exceptions defined by the caller's C<EXCEPTION_CLASS>
+as subroutines that return the subroutines name as a string. The calling
+package can then throw exceptions with a class attribute that takes these
+subroutines return values
 
 =head1 Configuration and Environment
 
@@ -72,6 +114,14 @@ Coerces a hash ref from whatever args are passed
 
 Substitute the placeholders in the C<$template> string (e.g. [_1])
 with the corresponding argument
+
+=head2 quote_bind_values
+
+   $bool = Unexpected::Functions->quote_bind_values( $bool );
+
+Accessor / mutator package method that toggles the state on quoting
+the placeholder substitution values in C<inflate_message>. Defaults
+to true
 
 =head1 Diagnostics
 

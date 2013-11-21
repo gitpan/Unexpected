@@ -31,6 +31,7 @@ Module::Build->subclass( code => do { local $/; <DATA> } )->new(
     'Devel::StackTrace' => '1.26',
     'Exporter::Tiny' => '0.026',
     'Moo' => '1.003',
+    'Sub::Install' => '0.925',
     'Type::Tiny' => '0.030',
     'namespace::clean' => '0.23',
     'namespace::sweep' => '0.006',
