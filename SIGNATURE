@@ -14,40 +14,40 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 9999785bd2544681061f58aada2ff868554b2652 Build.PL
-SHA1 b5e96998e42f893875f2e9198a8f21300d79191d Changes
+SHA1 d14cfc7ca3ecb191e727e4449a949e27f513fc3c Build.PL
+SHA1 668134958d464cc4c0a0687e9d94b57d3cd29a3d Changes
 SHA1 8835c6f04f0b79a12fb91025ee72f89d949d1d54 LICENSE
 SHA1 332d679b41013520f4bf2bc00b0b1f23fb9aa820 MANIFEST
-SHA1 cb515a13da503ea98be072eb4a2c3c1ce2eba405 META.json
-SHA1 cf50ce8e850397ff558b469c34a6a0c57776db11 META.yml
-SHA1 dff1856f9516a98da207bdf7e96b6ce31b7290bc README
-SHA1 6db7258736822701b703b7c6eeaf3bfa72890e53 lib/Unexpected.pm
-SHA1 724a55a6eeeb802b0363fe640ac1c6f3d055a4c3 lib/Unexpected/Functions.pm
-SHA1 45c36dcfc38ab9591505fabe20bf452f28fa065a lib/Unexpected/TraitFor/ErrorLeader.pm
-SHA1 a0a4e2f937911f6f8bea183a89480031afba5371 lib/Unexpected/TraitFor/ExceptionClasses.pm
-SHA1 41010efc369a332e9e85b4120be9a1be58484ce6 lib/Unexpected/TraitFor/StringifyingError.pm
-SHA1 e71fb0f443f437c2a052e3aa1fbff5d9fd7cf6cb lib/Unexpected/TraitFor/Throwing.pm
-SHA1 6f24edf4e014112b7a009ab58db74681a5814528 lib/Unexpected/TraitFor/TracingStacks.pm
-SHA1 75d170e5e7bdb99c28312b8c7d17cad6b82ffb1f lib/Unexpected/Types.pm
+SHA1 51e40df4f83595cc85e241a510f1c35efe5c62aa META.json
+SHA1 dd9373a137acfe206c920c51322c22c6957a47a8 META.yml
+SHA1 ea33532721f3c559c457ec57942d2cc3166e527e README
+SHA1 1a7b381819cba4c9941030531397dd9713af3916 lib/Unexpected.pm
+SHA1 6ddcb892e0733e89a3db4a17192697215f18cab5 lib/Unexpected/Functions.pm
+SHA1 5208ce8a7560950ad04d3bd52fe24f16845196e5 lib/Unexpected/TraitFor/ErrorLeader.pm
+SHA1 75177a469f6b1cba827ede8b179da5f3f9d417e7 lib/Unexpected/TraitFor/ExceptionClasses.pm
+SHA1 d4935a95ea4f8ddf99a227b29e252c8d164e801a lib/Unexpected/TraitFor/StringifyingError.pm
+SHA1 6a933c5474e5928cba419a2cdb51d59587bf97ce lib/Unexpected/TraitFor/Throwing.pm
+SHA1 82b75c99095e3281e18dc9da6bff80c2e39a5f9e lib/Unexpected/TraitFor/TracingStacks.pm
+SHA1 090b75cff1856f2e8b3b4c9f0fadfdd7c2369d5d lib/Unexpected/Types.pm
 SHA1 ebb85bc50102f9cdaa73c149b96741cdd3931c89 t/01always_pass.t
-SHA1 b1767737e5c6066c8552c55ce1cef36aaa459ddf t/02pod.t
-SHA1 80ada73c53961ae68a677679b7d81badb56309b5 t/03podcoverage.t
-SHA1 76224a521f0feed28b1ad1fa82000c714db32b6b t/04critic.t
-SHA1 a9393648837e7b9b27bb4f3d7cd869e3235b8eb4 t/05kwalitee.t
-SHA1 0e43dcfa0b1e3a5eecc7ea63671e608f9510cfba t/06yaml.t
-SHA1 6e7bf741fa82a6c5948cf968c44e2d6773a4897a t/07podspelling.t
-SHA1 6a4a6046fbfbbe0e646c3c1443e8726440684ee5 t/08memory_leak.t
-SHA1 2aeeff91887600e0076fce76661b40e94e8ac5df t/10test_script.t
-SHA1 4bd4de71a146e608ca542c542e15f0ded0689e82 t/20types.t
-SHA1 f5e932494ad61f94fa3e39683ad00df00431a987 t/30functions.t
+SHA1 11ae49f111ff03e2d77f7d219eee8b310251194f t/02pod.t
+SHA1 dbe5288f090df99eef81d6f7a6f6dfa9a995bfb1 t/03podcoverage.t
+SHA1 80ad227f47065b44bf35ba6a7a27fac8733bd676 t/04critic.t
+SHA1 ece2af3759a05a89bfa1e40ff1f04b4d01bc748c t/05kwalitee.t
+SHA1 91a5cc82e88291534a1a8284e60fd104da328a14 t/06yaml.t
+SHA1 7e591b273dc9dc7ede21688e2e70083bf0a80580 t/07podspelling.t
+SHA1 e3cf4301c76cd2d29822ea7d12812e14bb80b848 t/08memory_leak.t
+SHA1 a745614f439bc2945ab9ff1cc4a48c187e1e273e t/10test_script.t
+SHA1 e67bf8b522c5aabfce513328f790426d7411f16e t/20types.t
+SHA1 497cc115cddb646973589a1b0f2a0ca2b3c05291 t/30functions.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQEcBAEBAgAGBQJSjjwvAAoJEK492j4Im1Bp7N4IALi8ArM/2LH5EGDAyLZ29ZG/
-bvMCmFGAtgt/Mfp/XK6dK24Qn+Cus8LvzHEq27G9YhATyFRmBBaxwX8g5ospB8OU
-ExELF5ykHMvDwTqj1mH5AgwxCyBqYeLOZ3UmI5eSKhot/jYjamtPn6+IGGm4g1bQ
-9MOrnMEPQOsh7PtwtM713tQQhuqIvCSDApR76KFZRtkwCFxxXQzu0+/LPJGTOTPa
-FgLxHLHi49H3/3Q9zOdqT8VCHwrI/YoNCX6bH6/94x74vGdrmXmiitrIVB3aaXBa
-pAb5z/0qNQvRhSWfpNDmwLMUb9dNKCoxvOWhk7imczcuelWARFctZGYzzPl4WHo=
-=rS/Q
+iQEcBAEBAgAGBQJSleKzAAoJEK492j4Im1Bp/i8IAIlsQ27np4v0AHR563vyb0X0
+1b+KVQs9LXvKB/6hWOiDe1a5BEB03tMzQ8EDIMQ2JIbm8/5n0teMjQ5T4BS0CptT
+/j8YCAa3IY3UT9ycN8JJ7HO6jYBGDW92aaU3y0m4EITM9B9Gvh/EYNXQqYOWiylz
+5ivLns97mMNtGfOULDa14zxciS6giaW4DuMhM7tKIeis/NBHAOplSE7Z/fXdhcdz
+3M1lbqT3NuMxn7MAPz300j60wF3XxDLqc3o6mpzsF9SJ3FBvvefphs7t/M3sfsE/
+kVybNpIeYdUMZTd0rBI5bnFe9Rtp6oHchjtgF0D/DQdYNDz1AKzNId5nbV1oYcI=
+=Skkc
 -----END PGP SIGNATURE-----

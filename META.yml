@@ -26,32 +26,32 @@ no_index:
 provides:
   Unexpected:
     file: lib/Unexpected.pm
-    version: v0.15.1
+    version: v0.16.1
   Unexpected::Functions:
     file: lib/Unexpected/Functions.pm
-    version: v0.15.1
+    version: v0.16.1
   Unexpected::TraitFor::ErrorLeader:
     file: lib/Unexpected/TraitFor/ErrorLeader.pm
-    version: v0.15.1
+    version: v0.16.1
   Unexpected::TraitFor::ExceptionClasses:
     file: lib/Unexpected/TraitFor/ExceptionClasses.pm
-    version: v0.15.1
+    version: v0.16.1
   Unexpected::TraitFor::StringifyingError:
     file: lib/Unexpected/TraitFor/StringifyingError.pm
-    version: v0.15.1
+    version: v0.16.1
   Unexpected::TraitFor::Throwing:
     file: lib/Unexpected/TraitFor/Throwing.pm
-    version: v0.15.1
+    version: v0.16.1
   Unexpected::TraitFor::TracingStacks:
     file: lib/Unexpected/TraitFor/TracingStacks.pm
-    version: v0.15.1
+    version: v0.16.1
   Unexpected::Types:
     file: lib/Unexpected/Types.pm
-    version: v0.15.1
+    version: v0.16.1
 requires:
-  Class::Load: 0.18
   Devel::StackTrace: 1.26
   Exporter::Tiny: 0.026
+  Module::Runtime: 0.013
   Moo: 1.003
   Sub::Install: 0.925
   Type::Tiny: 0.030
@@ -62,4 +62,4 @@ resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unexpected
   homepage: https://metacpan.org/author/PJFL
   license: http://dev.perl.org/licenses/
-version: 0.15.1
+version: 0.16.1

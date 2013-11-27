@@ -27,9 +27,9 @@ Module::Build->subclass( code => do { local $/; <DATA> } )->new(
     'version' => '0.88'
   },
   'requires' => {
-    'Class::Load' => '0.18',
     'Devel::StackTrace' => '1.26',
     'Exporter::Tiny' => '0.026',
+    'Module::Runtime' => '0.013',
     'Moo' => '1.003',
     'Sub::Install' => '0.925',
     'Type::Tiny' => '0.030',
