@@ -18,7 +18,7 @@ Module::Build->subclass( code => do { local $/; <DATA> } )->new(
   'notes'       => { min_perl_version => $perl_ver },
   'build_requires' => {
     'Module::Build' => '0.4004',
-    'Moo' => '1.002',
+    'Moo' => '1.003',
     'Test::Requires' => '0.06',
     'version' => '0.88'
   },
@@ -31,6 +31,7 @@ Module::Build->subclass( code => do { local $/; <DATA> } )->new(
     'Exporter::Tiny' => '0.026',
     'Module::Runtime' => '0.013',
     'Moo' => '1.003',
+    'Package::Stash' => '0.33',
     'Sub::Install' => '0.925',
     'Type::Tiny' => '0.030',
     'namespace::clean' => '0.23',
