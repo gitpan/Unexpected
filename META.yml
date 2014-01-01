@@ -4,7 +4,6 @@ author:
   - 'Peter Flanigan, C<< <pjfl@cpan.org> >>'
 build_requires:
   Module::Build: 0.4004
-  Moo: 1.003
   Test::Requires: 0.06
   version: 0.88
 configure_requires:
@@ -26,28 +25,28 @@ no_index:
 provides:
   Unexpected:
     file: lib/Unexpected.pm
-    version: v0.19.1
+    version: v0.20.1
   Unexpected::Functions:
     file: lib/Unexpected/Functions.pm
-    version: v0.19.1
+    version: v0.20.1
   Unexpected::TraitFor::ErrorLeader:
     file: lib/Unexpected/TraitFor/ErrorLeader.pm
-    version: v0.19.1
+    version: v0.20.1
   Unexpected::TraitFor::ExceptionClasses:
     file: lib/Unexpected/TraitFor/ExceptionClasses.pm
-    version: v0.19.1
+    version: v0.20.1
   Unexpected::TraitFor::StringifyingError:
     file: lib/Unexpected/TraitFor/StringifyingError.pm
-    version: v0.19.1
+    version: v0.20.1
   Unexpected::TraitFor::Throwing:
     file: lib/Unexpected/TraitFor/Throwing.pm
-    version: v0.19.1
+    version: v0.20.1
   Unexpected::TraitFor::TracingStacks:
     file: lib/Unexpected/TraitFor/TracingStacks.pm
-    version: v0.19.1
+    version: v0.20.1
   Unexpected::Types:
     file: lib/Unexpected/Types.pm
-    version: v0.19.1
+    version: v0.20.1
 requires:
   Devel::StackTrace: 1.26
   Exporter::Tiny: 0.026
@@ -63,4 +62,4 @@ resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unexpected
   homepage: https://metacpan.org/author/PJFL
   license: http://dev.perl.org/licenses/
-version: 0.19.1
+version: 0.20.1
