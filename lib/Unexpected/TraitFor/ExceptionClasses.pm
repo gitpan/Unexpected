@@ -1,22 +1,21 @@
-# @(#)Ident: ExceptionClasses.pm 2013-12-31 18:28 pjf ;
+# @(#)Ident: ExceptionClasses.pm 2014-01-24 20:18 pjf ;
 
 package Unexpected::TraitFor::ExceptionClasses;
 
 use namespace::sweep;
-use version; our $VERSION = qv( sprintf '0.20.%d', q$Rev: 1 $ =~ /\d+/gmx );
 
-use Unexpected::Functions   qw( inflate_message );
+use Unexpected::Functions qw( inflate_message );
 use Moo::Role;
 
-my $Root = 'Unexpected'; my $Classes = { $Root => {} };
+my $ROOT = 'Unexpected'; my $Classes = { $ROOT => {} };
 
-__PACKAGE__->has_exception( 'Unspecified' => {
-   parents => [ $Root ], error => '[_1] not specified' } );
+__PACKAGE__->add_exception( 'Unspecified' => {
+   parents => $ROOT, error => 'Parameter [_1] not specified' } );
 
 # Public attributes
 has 'class' => is => 'ro', isa => sub {
    ($_[ 0 ] and exists $Classes->{ $_[ 0 ] }) or die inflate_message
-      ( 'Exception class [_1] does not exist', $_[ 0 ] ) }, default => $Root;
+      ( 'Exception class [_1] does not exist', $_[ 0 ] ) }, default => $ROOT;
 
 # Construction
 around 'BUILDARGS' => sub {
@@ -30,35 +29,35 @@ around 'BUILDARGS' => sub {
    return $attr;
 };
 
-# Public methods
-sub has_exception {
-   my ($self, @args) = @_; my $i = 0;
+# Public class methods
+sub add_exception {
+   my ($self, $class, $args) = @_; $args //= {};
 
-   defined $args[ 0 ] or die 'Exception class undefined';
+   defined $class or die "Parameter 'exception class' not specified";
 
-   while (defined (my $class = $args[ $i++ ])) {
-      exists $Classes->{ $class }
-         and die "Exception class ${class} already exists";
+   exists $Classes->{ $class }
+      and die "Exception class ${class} already exists";
 
-      my $args = $args[ $i++ ] // {};
+   ref $args ne 'HASH' and $args = { parents => $args };
 
-      ref $args ne 'HASH' and $args = { parents => $args };
+   my $parents = $args->{parents} //= [ $ROOT ];
 
-      my $parents = $args->{parents} //= [ $Root ];
+   ref $parents ne 'ARRAY' and $parents = $args->{parents} = [ $parents ];
 
-      ref $parents ne 'ARRAY' and $parents = $args->{parents} = [ $parents ];
-
-      for my $parent (@{ $parents }) {
-         exists $Classes->{ $parent } or die
-            "Exception class ${class} parent class ${parent} does not exist";
-      }
-
-      $Classes->{ $class } = $args;
+   for my $parent (@{ $parents }) {
+      exists $Classes->{ $parent } or die
+         "Exception class ${class} parent class ${parent} does not exist";
    }
 
+   $Classes->{ $class } = $args;
    return;
 }
 
+sub is_exception {
+   return $_[ 1 ] && !ref $_[ 1 ] && exists $Classes->{ $_[ 1 ] } ? 1 : 0;
+}
+
+# Public object methods
 sub instance_of {
    my ($self, $wanted) = @_; $wanted or return 0;
 
@@ -75,11 +74,6 @@ sub instance_of {
 
    return 0;
 }
-
-sub is_exception {
-   return $_[ 1 ] && !ref $_[ 1 ] && exists $Classes->{ $_[ 1 ] } ? 1 : 0;
-}
-
 
 1;
 
@@ -102,10 +96,10 @@ Unexpected::TraitFor::ExceptionClasses - Define an exception class hierarchy
    extends 'Unexpected';
    with    'Unexpected::ExceptionClasses';
 
-   __PACKAGE__->has_exception( 'A' );
-   __PACKAGE__->has_exception( 'B', { parents => 'A' } );
-   __PACKAGE__->has_exception( 'C', 'A' ); # same but shorter
-   __PACKAGE__->has_exception( 'D', [ 'B', 'C' ] ); # diamond pattern
+   __PACKAGE__->add_exception( 'A' );
+   __PACKAGE__->add_exception( 'B', { parents => 'A' } );
+   __PACKAGE__->add_exception( 'C', 'A' ); # same but shorter
+   __PACKAGE__->add_exception( 'D', [ 'B', 'C' ] ); # diamond pattern
 
    # Then elsewhere
    __PACKAGE__->throw( 'error message', { class => 'C' } );
@@ -118,11 +112,6 @@ Unexpected::TraitFor::ExceptionClasses - Define an exception class hierarchy
    $e->instance_of( 'B' ); # false
    $e->instance_of( 'C' ); # true
    $e->instance_of( 'D' ); # false
-
-=head1 Version
-
-This documents version v0.20.$Rev: 1 $
-of L<Unexpected::TraitFor::ExceptionClasses>
 
 =head1 Description
 
@@ -140,12 +129,20 @@ Defines the following attributes;
 
 Defaults to C<Unexpected>. Can be used to differentiate different
 classes of error. Non default values for this attribute must have been
-defined with a call to L</has_exception> otherwise an exception will
+defined with a call to L</add_exception> otherwise an exception will
 be thrown. Oh the irony
 
 =back
 
-Defines the C<Unspecified> exception class with a default error message
+Defines the C<Unspecified> exception class with a default error message.
+Once the exception class is defined the the following;
+
+   use Unexpected::Functions qw( Unspecified );
+
+will import a subroutine that when called returns it's own name. This is
+a suitable value for the C<class> attribute
+
+   YourExceptionClass->throw( class => Unspecified, args => [ 'param name' ] );
 
 =head1 Subroutines/Methods
 
@@ -154,17 +151,22 @@ Defines the C<Unspecified> exception class with a default error message
 Applies the default error message if one exists and the attributes for the
 soon to be constructed exception lacks one
 
-=head2 has_exception
+=head2 add_exception
 
-   YourExceptionClass->has_exception( 'new_classname', [ 'parent1', 'parent2']);
+   YourExceptionClass->add_exception( 'new_classname', [ 'parent1', 'parent2']);
 
 Defines a new exception class. Parent classes must already exist. Default
 parent class is C<Unexpected>;
 
-   $class->has_exception( 'new_classname' => {
+   $class->add_exception( 'new_classname' => {
       parents => [ 'parent1' ], error => 'Default error message [_1]' } );
 
 Sets the default error message for the exception class
+
+When defining your own exception class import and call
+L<has_exception|File::DataClass::Functions/has_exception> which will
+call this class method. The functions subroutine signature is like
+that of C<has> in C<Moo>
 
 =head2 instance_of
 
@@ -177,7 +179,7 @@ Is the exception object an instance of the exception class
    $bool = YourExceptionClass->is_exception( 'exception_classname' );
 
 Returns true if the exception class exits as a result of a call to
-L</has_exception>
+L</add_exception>
 
 =head1 Diagnostics
 

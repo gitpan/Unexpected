@@ -1,17 +1,17 @@
-# @(#)Ident: Functions.pm 2013-12-31 18:01 pjf ;
+# @(#)Ident: Functions.pm 2014-01-24 20:18 pjf ;
 
 package Unexpected::Functions;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.20.%d', q$Rev: 1 $ =~ /\d+/gmx );
-use parent                  qw( Exporter::Tiny );
+use parent 'Exporter::Tiny';
 
 use Package::Stash;
-use Scalar::Util            qw( blessed reftype );
-use Sub::Install            qw( install_sub );
+use Scalar::Util qw( blessed reftype );
+use Sub::Install qw( install_sub );
 
-our @EXPORT_OK = qw( build_attr_from inflate_message is_class_loaded );
+our @EXPORT_OK = qw( build_attr_from has_exception inflate_message
+                     is_class_loaded );
 
 my $Should_Quote = 1;
 
@@ -50,6 +50,12 @@ sub build_attr_from (;@) { # Coerce a hash ref from whatever was passed
         : (  @_ % 2 == 0 && defined $_[ 1 ]) ? { @_ }
         : (                 defined $_[ 0 ]) ? { error => @_ }
                                              : {};
+}
+
+sub has_exception ($;@) {
+   my ($name, %args) = @_; my $exception_class = caller;
+
+   return $exception_class->add_exception( $name, \%args );
 }
 
 sub inflate_message ($;@) { # Expand positional parameters of the form [_<n>]
@@ -106,10 +112,6 @@ Unexpected::Functions - A collection of functions used in this distribution
 
    use Unexpected::Functions qw( build_attr_from );
 
-=head1 Version
-
-This documents version v0.20.$Rev: 1 $ of L<Unexpected::Functions>
-
 =head1 Description
 
 A collection of functions used in this distribution
@@ -130,6 +132,15 @@ Defines no attributes
    $hash_ref = build_attr_from( <whatever> );
 
 Coerces a hash ref from whatever args are passed
+
+=head2 has_exception
+
+   has_exception 'exception_mame' => parents => [ 'parent_exception' ],
+      error => 'Error message for the exception with placeholders';
+
+Calls L<Unexpected::TraitFor::ExceptionClasses/add_exception> via the
+calling class which is assumed to inherit from a class that consumes
+the L<Unexpected::TraitFor::ExceptionClasses> role
 
 =head2 inflate_message
 
