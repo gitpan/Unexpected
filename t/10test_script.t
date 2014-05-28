@@ -1,5 +1,3 @@
-# @(#)Ident: 10test_script.t 2014-01-24 20:16 pjf ;
-
 use strict;
 use warnings;
 use File::Spec::Functions qw( catdir updir );
@@ -102,7 +100,7 @@ eval { $class->throw( error => sub { 'Test firing' } ) }; $e = _eval_error;
 
 like $e, qr{ Test \s+ firing }mx, 'Derefernces coderef as error string';
 
-eval { $class->throw( args => {} ) }; $e = _eval_error;
+eval { $class->throw( 'error', args => {} ) }; $e = _eval_error;
 
 like $e, qr{ not \s+ pass \s+ type \s+ constraint }mx, 'Attribute type error';
 
@@ -231,6 +229,8 @@ $class->ignore_class( 'main' );
 eval { $class->throw( 'PracticeKill' ) }; $e = _eval_error;
 
 is $e->leader, q(), 'No leader';
+
+is "${e}", "PracticeKill\n", 'Stringifies';
 
 done_testing;
 
