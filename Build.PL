@@ -14,6 +14,7 @@ my $prereqs  = {
   'build_requires' => {
     'Module::Build' => '0.4004',
     'Test::Requires' => '0.06',
+    'Try::Tiny' => '0.18',
     'version' => '0.88'
   },
   'configure_requires' => {
@@ -23,14 +24,15 @@ my $prereqs  = {
   'requires' => {
     'Devel::StackTrace' => '1.26',
     'Exporter::Tiny' => '0.026',
-    'Module::Runtime' => '0.013',
-    'Moo' => '1.003',
+    'Module::Runtime' => '0.014',
+    'Moo' => '1.004002',
     'Package::Stash' => '0.33',
     'Sub::Install' => '0.925',
     'Type::Tiny' => '0.030',
-    'namespace::clean' => '0.23',
-    'namespace::sweep' => '0.006',
-    'perl' => '5.010001'
+    'namespace::autoclean' => '0.19',
+    'namespace::clean' => '0.25',
+    'perl' => '5.010001',
+    'strictures' => '1.004004'
   },
 };
 

@@ -42,7 +42,7 @@ Synopsis
 
 Version
 
-    This documents version v0.23.$Rev: 2 $ of Unexpected
+    This documents version v0.24.$Rev: 1 $ of Unexpected
 
 Description
 
@@ -83,7 +83,7 @@ Diagnostics
 
 Dependencies
 
-    namespace::sweep
+    namespace::autoclean
 
     overload
 
