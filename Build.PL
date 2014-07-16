@@ -22,7 +22,7 @@ my $prereqs  = {
     'version' => '0.88'
   },
   'requires' => {
-    'Devel::StackTrace' => '1.26',
+    'Devel::StackTrace' => '1.34',
     'Exporter::Tiny' => '0.038',
     'Module::Runtime' => '0.014',
     'Moo' => '1.005000',
@@ -31,8 +31,7 @@ my $prereqs  = {
     'Type::Tiny' => '>= 0.042, != 0.44',
     'namespace::autoclean' => '0.19',
     'namespace::clean' => '0.25',
-    'perl' => '5.010001',
-    'strictures' => '1.005004'
+    'perl' => '5.010001'
   },
 };
 
