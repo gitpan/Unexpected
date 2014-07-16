@@ -23,16 +23,16 @@ my $prereqs  = {
   },
   'requires' => {
     'Devel::StackTrace' => '1.26',
-    'Exporter::Tiny' => '0.026',
+    'Exporter::Tiny' => '0.038',
     'Module::Runtime' => '0.014',
-    'Moo' => '1.004002',
-    'Package::Stash' => '0.33',
-    'Sub::Install' => '0.925',
-    'Type::Tiny' => '0.030',
+    'Moo' => '1.005000',
+    'Package::Stash' => '0.36',
+    'Sub::Install' => '0.928',
+    'Type::Tiny' => '0.044',
     'namespace::autoclean' => '0.19',
     'namespace::clean' => '0.25',
     'perl' => '5.010001',
-    'strictures' => '1.004004'
+    'strictures' => '1.005004'
   },
 };
 
