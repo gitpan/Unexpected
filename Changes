@@ -1,5 +1,10 @@
 Revision history for Unexpected
 
+          - More breakage
+            494fe6de-2168-11e4-b0d1-f6bc4915a708
+          - Added fury badge
+          - Updated build_requires dependencies
+          - Split out boilerplate from test scripts
           - Moved s::d calls til after min perl ver tests
           - Added strictures::defanged to tests because
             160dd1a2-1ebe-11e4-ae61-5739e0bfc7aa

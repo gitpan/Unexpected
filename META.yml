@@ -4,14 +4,15 @@ author:
   - 'Peter Flanigan, C<< <pjfl@cpan.org> >>'
 build_requires:
   Module::Build: '0.4004'
-  Test::Requires: '0.06'
-  Try::Tiny: '0.18'
+  Test::Requires: '0.08'
+  Try::Tiny: '0.22'
+  strictures: '1.005004'
   version: '0.88'
 configure_requires:
   Module::Build: '0.4004'
   version: '0.88'
 dynamic_config: 1
-generated_by: 'Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.141170'
+generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -26,28 +27,28 @@ no_index:
 provides:
   Unexpected:
     file: lib/Unexpected.pm
-    version: v0.28.5
+    version: v0.28.9
   Unexpected::Functions:
     file: lib/Unexpected/Functions.pm
-    version: v0.28.5
+    version: v0.28.9
   Unexpected::TraitFor::ErrorLeader:
     file: lib/Unexpected/TraitFor/ErrorLeader.pm
-    version: v0.28.5
+    version: v0.28.9
   Unexpected::TraitFor::ExceptionClasses:
     file: lib/Unexpected/TraitFor/ExceptionClasses.pm
-    version: v0.28.5
+    version: v0.28.9
   Unexpected::TraitFor::StringifyingError:
     file: lib/Unexpected/TraitFor/StringifyingError.pm
-    version: v0.28.5
+    version: v0.28.9
   Unexpected::TraitFor::Throwing:
     file: lib/Unexpected/TraitFor/Throwing.pm
-    version: v0.28.5
+    version: v0.28.9
   Unexpected::TraitFor::TracingStacks:
     file: lib/Unexpected/TraitFor/TracingStacks.pm
-    version: v0.28.5
+    version: v0.28.9
   Unexpected::Types:
     file: lib/Unexpected/Types.pm
-    version: v0.28.5
+    version: v0.28.9
 requires:
   Devel::StackTrace: '1.34'
   Exporter::Tiny: '0.038'
@@ -64,4 +65,4 @@ resources:
   homepage: https://metacpan.org/author/PJFL
   license: http://dev.perl.org/licenses/
   repository: git://github.com/pjfl/p5-unexpected.git
-version: 0.28.5
+version: 0.28.9

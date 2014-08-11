@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.66.
+signed via the Module::Signature module, version 0.73.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,21 +14,21 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 e3fe055d6952fc3993789b8b2340a48fe039150e Build.PL
-SHA1 c08a47f0498a47c0ea7560029cf5427db84dc496 Changes
+SHA1 2e0ef39030dfd89712feff77f540c4371e956108 Build.PL
+SHA1 de5af3b690894e94b8692bc9d6404b372ca06111 Changes
 SHA1 b8415dc6fd6293b168bcc15a552f4383175e2f2f LICENSE
-SHA1 74654c5c9518b19eba70ec2e752bc463267e3fba MANIFEST
-SHA1 f86cbbe6fb81c61277422029c21661d5bef45620 META.json
-SHA1 b32f66506294da0756dca3792df22cf355170fe6 META.yml
-SHA1 ef19c5daafb1c48ab15c02ea0f7733cb24e9c9ca README
-SHA1 e58a5598ece99388c2172587d0de05a277058392 lib/Unexpected.pm
+SHA1 99c9b084841b37c0f03fc0dce7f6b65ee15ebcd2 MANIFEST
+SHA1 cde708212e2df32d8df3c27e6d14fd2f9abf5ce5 META.json
+SHA1 df85b593e6cf492c9c87ccd4e14a559eb0925c64 META.yml
+SHA1 f2f8d525b298467908fd97353c253a1ba67b14e4 README
+SHA1 f6318b3038a9a69a1fa1ac732aa2e8da3151d0ac lib/Unexpected.pm
 SHA1 0106e0edea699833a807392fef69422240179647 lib/Unexpected/Functions.pm
 SHA1 2c6ceab622fdc9fe7ac2f917e8d1d6983cf26c6f lib/Unexpected/TraitFor/ErrorLeader.pm
 SHA1 d0b05597164f3e3b131cff134abc6015f15ba737 lib/Unexpected/TraitFor/ExceptionClasses.pm
 SHA1 38fcdc918ccd1d80259f4713ccdd8285c58aea00 lib/Unexpected/TraitFor/StringifyingError.pm
 SHA1 bf175608233436c969b5f22d7cf15ff938dae546 lib/Unexpected/TraitFor/Throwing.pm
 SHA1 7626a6edf8c93a829fe68ec4232c5c02aa2766db lib/Unexpected/TraitFor/TracingStacks.pm
-SHA1 01d39ccb38ba2315b17db717307b975bf0343ae8 lib/Unexpected/Types.pm
+SHA1 24637c26975716beec905a60e2a710fc02db10c0 lib/Unexpected/Types.pm
 SHA1 a412ad8e1dfe0cc3a6b1f93b68d41bd89a1972e9 t/01always_pass.t
 SHA1 427b1a5820b3d6bc52044b99c999e458eba7d6dc t/02pod.t
 SHA1 905a84ed4a01bba172b682620964560f04ff93d2 t/03podcoverage.t
@@ -36,18 +36,19 @@ SHA1 c1c29d14c961c30f0ea1ff84dd3b6acb7f4d3e81 t/05kwalitee.t
 SHA1 8b1ef2c2000dda84911be6a6bf76d4de88a4d4dc t/06yaml.t
 SHA1 fb07bc663afb9e0733e374d5f70c8e48e33a7606 t/07podspelling.t
 SHA1 72287925bd28bf2cceb2349d0a0f16b03bccac7b t/08memory_leak.t
-SHA1 77775bf876da761ca09e8fa577cb1592c8aaa330 t/10test_script.t
-SHA1 92931deb4b8fa100a8da96396536e817c9d894ad t/20types.t
-SHA1 7e5ec6ce3308d8fd1aacc3428adf6bcbdc328828 t/30functions.t
+SHA1 a8efc58d35af32e527db961646397773c885b83e t/10test_script.t
+SHA1 d816235c7b6af59efb89b8088db24998737dcd8a t/20types.t
+SHA1 a1334951d5771afa492d6206fe42f3a21a172b99 t/30functions.t
+SHA1 414658d2ee5e9e05346e7e6ca1266c3fdd7634c0 t/boilerplate.pm
 SHA1 262cf3fd7ddd45c8e166dc2284520f02082abae2 t/lib/strictures/defanged.pm
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQEcBAEBAgAGBQJT5XWRAAoJEK492j4Im1BpkyIIAL1pbseS/acdiTlDggdBUxhT
-GMIZoDUfEzy33r5OFjopqiZGN7KLK1kUkeiwFJvBQI8tnHJiTbbID/pwXbASycnQ
-EJHpFxmyzo6LIrV4/OtB6/DwydCVlQeyCpQ4Zvs77oKj14kpSEOWRCdVerALzrpy
-JSQyo8ZMjpMMKMQTomQ/6AW2CJ1CWrNI8r551os58P7p85iXlrxomV1/f0/M0Waf
-PfJms753S+TTfPhQTqyo8or+m80zlP94obpKbjb27ejpkWiSK4L4yqmQmarGunBU
-7x2wBSIwf2hoyKIkQR+znJ/IUOjIlGGzvUBJjb5raoTVbXzScsCZLePRwlhz0aA=
-=8eVO
+iQEcBAEBAgAGBQJT6PCyAAoJEK492j4Im1Bp8usH+wctonA5iwAaX+wm/q5FggYG
+ZkJOA3YxM2yB0hu27jgqVjW6V0geZmwHFyp0TEbeFTHZPGVoh1ZvdQ9qb+phy5cb
+0kwQ920Pl5w25+XAF0ghbz2XhooQu2MuUn0JfXkyiNQahq9LGmnn/c9Xj4MZOImh
+AJ26gHgLhzrSc/HfL0L7lP8Kge+6F8TfkOQAUbweDJSEbIKShR+RWcVaLFl9g95G
+fBAU00tBCP0Ypp5pjWYgNQh+rZCC3tvuKUXhJf4yvrc0av5IibBJXHna4sWuWXrp
+7b800X43nohdHfzckkJaCiLwLPW0dgvI3ilsTtWpktD6NpyCvJR2OcwjTbKNlWA=
+=bJDj
 -----END PGP SIGNATURE-----
