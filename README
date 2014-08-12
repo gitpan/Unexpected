@@ -40,10 +40,6 @@ Synopsis
        try   { $self->some_method() }
        catch { warn $_->message };
 
-Version
-
-    This documents version v0.28.$Rev: 9 $ of Unexpected
-
 Description
 
     An exception class that supports error messages with placeholders, a
