@@ -15,16 +15,16 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 ac5347f236b53edcb1035245d7ef17b0b7bd594b Build.PL
-SHA1 1b24783a208aeb3e1c51f0a19977ed56294f0c8e Changes
+SHA1 11f028d9dcffc62571f0fdd9cc6ec423c8721a80 Changes
 SHA1 b8415dc6fd6293b168bcc15a552f4383175e2f2f LICENSE
 SHA1 b7be1f18e65beb92a5c080674fa2df97c13b326e MANIFEST
-SHA1 22c1e03ce1ff53a3209d153dddfeb23701bdd538 META.json
-SHA1 5f26ffcffb285721fc777b79993fc337da43f236 META.yml
-SHA1 6828a4f5946026ca31a51be06575f78783acc8c9 README
-SHA1 a121c2039b3b9bfd954622e8ef368b1a4e9d5472 lib/Unexpected.pm
-SHA1 0106e0edea699833a807392fef69422240179647 lib/Unexpected/Functions.pm
+SHA1 ad4cc3da151e7aff42ba7b143c7b9d6fa90e4571 META.json
+SHA1 ece1b356b7726da06878b8700cd566ff34438a3d META.yml
+SHA1 c22038f0b57e6a92e832950a1f77e6aac9638b3c README
+SHA1 7c3910c0c123122e8bb5473a49c52254f33a12e5 lib/Unexpected.pm
+SHA1 7fb111662fdb56363caac620cac97afb36f5da0a lib/Unexpected/Functions.pm
 SHA1 2c6ceab622fdc9fe7ac2f917e8d1d6983cf26c6f lib/Unexpected/TraitFor/ErrorLeader.pm
-SHA1 d0b05597164f3e3b131cff134abc6015f15ba737 lib/Unexpected/TraitFor/ExceptionClasses.pm
+SHA1 f37111500d5b4d5db1ccc33a6a673d221e94b76f lib/Unexpected/TraitFor/ExceptionClasses.pm
 SHA1 38fcdc918ccd1d80259f4713ccdd8285c58aea00 lib/Unexpected/TraitFor/StringifyingError.pm
 SHA1 bf175608233436c969b5f22d7cf15ff938dae546 lib/Unexpected/TraitFor/Throwing.pm
 SHA1 7626a6edf8c93a829fe68ec4232c5c02aa2766db lib/Unexpected/TraitFor/TracingStacks.pm
@@ -34,20 +34,20 @@ SHA1 427b1a5820b3d6bc52044b99c999e458eba7d6dc t/02pod.t
 SHA1 905a84ed4a01bba172b682620964560f04ff93d2 t/03podcoverage.t
 SHA1 c1c29d14c961c30f0ea1ff84dd3b6acb7f4d3e81 t/05kwalitee.t
 SHA1 8b1ef2c2000dda84911be6a6bf76d4de88a4d4dc t/06yaml.t
-SHA1 fb07bc663afb9e0733e374d5f70c8e48e33a7606 t/07podspelling.t
+SHA1 c5e84bd368b48e8462b34dd7801659bfed43f6f9 t/07podspelling.t
 SHA1 72287925bd28bf2cceb2349d0a0f16b03bccac7b t/08memory_leak.t
-SHA1 a8efc58d35af32e527db961646397773c885b83e t/10test_script.t
+SHA1 d2ba7a33565e00ffb4aaed9d9bb5aeb32efa6bee t/10test_script.t
 SHA1 692254e551a8d1b47ddd60e9aecb6a7f40df8685 t/20types.t
 SHA1 a1334951d5771afa492d6206fe42f3a21a172b99 t/30functions.t
-SHA1 1ec0517695ff571933ea07d0781689e7955b954e t/boilerplate.pm
+SHA1 a4eaf0cea68d5fa6e630225a5f2d73242b0c40d6 t/boilerplate.pm
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.10 (GNU/Linux)
+Version: GnuPG v1.4.12 (GNU/Linux)
 
-iQEcBAEBAgAGBQJT8oYRAAoJEK492j4Im1BpjzYIAKOtQBhYWr8lYASRo3A/urkX
-WHXpUPFQX+SqMbvnvpGfDBHOnl7ikRCxe2d3JRQvKnB/nkTOF8QYUmCr89E6ODlN
-/DWgLammKCPZMbZ37LAj4uVgdg1O83gRaRYRhqH7AyCXydjFIsJIllVpE6SZD7qP
-l9HsZsln9kcCANwLgyCeZBwtP/BndGkuQ+yNhWTdw37C06iWwUO1RXYjEiLtxhMN
-+S2d05Ld2tlypCjj2aG6QrJVc2tPZYAE2U58jgByJrM3hlhSGHn6o6EvD4LWAxAq
-r/vUOnGUTWePFwlN0i72z9jdf4XLZYrl+MN9jPdlnLk5kMnHX+/pq/gd+noScRE=
-=U1jv
+iQEcBAEBAgAGBQJULIRoAAoJEK492j4Im1BpaPoH/17dsq0RIvDTQ0e4EhnW8AMK
+WnwYNcJakUlvsv0fu/vQ0VvyWFkZAHAAHc8gYAVwOopY+62lqHWZ5t9N8tRlqkbc
+n214N+bYbWMJf596bAHucclGL6+QlXYw6Qkho4XS7kJqp9ylyYd+nKtetYRH1q6V
+R4anQWigXi0hvK9fl14AHO/mG22fbiNFWkt19J4FCILNtxTFJgmfMA1kJm4JRSrp
+kJmUhUpbJFmvw2N8d/UxK6fbqxMQybBUdPZPJ3Nlv7wH9OFfO8Kt/iQJymEeZQyc
+FCE/2MTcMk2F+WnJDS5xRA72ONJepZ9DoZRJRQ0DuSWuqGG4xOF0uJHWiIgWQfk=
+=Xlns
 -----END PGP SIGNATURE-----

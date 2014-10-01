@@ -52,6 +52,9 @@ Configuration and Environment
     Applies exception roles to the exception base class Unexpected. See
     "Dependencies" for the list of roles that are applied
 
+    The list of constructor methods signatures is described in
+    build_attr_from
+
     Error objects are overloaded to stringify to the full error message
     plus a leader if the optional ErrorLeader role has been applied
 
@@ -59,7 +62,7 @@ Subroutines/Methods
 
  BUILDARGS
 
-    Customizes the constructor. Accepts either a coderef, an object ref, a
+    Customises the constructor. Accepts either a coderef, an object ref, a
     hashref, a scalar, or a list of key / value pairs
 
  BUILD
@@ -85,7 +88,7 @@ Dependencies
 
     Moo
 
-    Unexpected::TraitFor::Exception::Classes
+    Unexpected::TraitFor::ExceptionClasses
 
     Unexpected::TraitFor::StringifyingError
 

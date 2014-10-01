@@ -3,7 +3,7 @@ package Unexpected;
 use 5.010001;
 use namespace::autoclean;
 use overload '""' => sub { $_[ 0 ]->as_string }, fallback => 1;
-use version; our $VERSION = qv( sprintf '0.30.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.31.%d', q$Rev: 1 $ =~ /\d+/gmx );
 
 use Moo;
 use Scalar::Util qw( blessed );
@@ -26,13 +26,13 @@ __END__
 
 =encoding utf8
 
-=begin markdown
+=begin html
 
-[![Build Status](https://travis-ci.org/pjfl/p5-unexpected.svg?branch=master)](https://travis-ci.org/pjfl/p5-unexpected)
-[![Coverage Status](https://coveralls.io/repos/pjfl/p5-unexpected/badge.png)](https://coveralls.io/r/pjfl/p5-unexpected)
-[![CPAN version](https://badge.fury.io/pl/Unexpected.svg)](http://badge.fury.io/pl/Unexpected)
+<a href="https://travis-ci.org/pjfl/p5-unexpected"><img src="https://travis-ci.org/pjfl/p5-unexpected.png" alt="p5-unexpected"></a>
+<a href="https://coveralls.io/r/pjfl/p5-unexpected?branch=master"><img src="https://coveralls.io/repos/pjfl/p5-unexpected/badge.png" alt="p5-unexpected"></a>
+<a href="http://badge.fury.io/pl/Unexpected"><img src="https://badge.fury.io/pl/Unexpected.svg" alt="p5-unexpected"></a>
 
-=end markdown
+=end html
 
 =head1 Name
 
@@ -89,6 +89,9 @@ with full stack trace
 Applies exception roles to the exception base class L<Unexpected>. See
 L</Dependencies> for the list of roles that are applied
 
+The list of constructor methods signatures is described in
+L<build_attr_from|Unexpected::Functions/build_attr_from>
+
 Error objects are overloaded to stringify to the full error message
 plus a leader if the optional C<ErrorLeader> role has been applied
 
@@ -96,7 +99,7 @@ plus a leader if the optional C<ErrorLeader> role has been applied
 
 =head2 BUILDARGS
 
-Customizes the constructor. Accepts either a coderef, an object ref,
+Customises the constructor. Accepts either a coderef, an object ref,
 a hashref, a scalar, or a list of key / value pairs
 
 =head2 BUILD
@@ -124,7 +127,7 @@ error role since overloading is not supported in L<Moo::Role>
 
 =item L<Moo>
 
-=item L<Unexpected::TraitFor::Exception::Classes>
+=item L<Unexpected::TraitFor::ExceptionClasses>
 
 =item L<Unexpected::TraitFor::StringifyingError>
 
