@@ -15,16 +15,16 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 ac5347f236b53edcb1035245d7ef17b0b7bd594b Build.PL
-SHA1 1225674e3801ece41b41eb678da6abfe3f5c2ef1 Changes
+SHA1 0088bb03ae894d459dc164d97f2bde0c2005d258 Changes
 SHA1 b8415dc6fd6293b168bcc15a552f4383175e2f2f LICENSE
 SHA1 b7be1f18e65beb92a5c080674fa2df97c13b326e MANIFEST
-SHA1 870970894f89c0739ccfaecfd0e5dff8d7008053 META.json
-SHA1 74ed9f4cb90e7a6da0bdfc058196a9aebc9ccbba META.yml
+SHA1 028fb5de495baf20f5bad3c79b7980b54729fefa META.json
+SHA1 bf1af0502eeb299fb53eec1565798d9097fa788b META.yml
 SHA1 c22038f0b57e6a92e832950a1f77e6aac9638b3c README
-SHA1 f101aed64ba2d6ddb8f17b9c0256dfa040fc0c5f lib/Unexpected.pm
+SHA1 fd09cd4eafd888933eb5899b04b11b3dbbf68ce3 lib/Unexpected.pm
 SHA1 7fb111662fdb56363caac620cac97afb36f5da0a lib/Unexpected/Functions.pm
 SHA1 2c6ceab622fdc9fe7ac2f917e8d1d6983cf26c6f lib/Unexpected/TraitFor/ErrorLeader.pm
-SHA1 f37111500d5b4d5db1ccc33a6a673d221e94b76f lib/Unexpected/TraitFor/ExceptionClasses.pm
+SHA1 f3f419ff9814663d6f4d4538f70ca35c9e1a2ccb lib/Unexpected/TraitFor/ExceptionClasses.pm
 SHA1 38fcdc918ccd1d80259f4713ccdd8285c58aea00 lib/Unexpected/TraitFor/StringifyingError.pm
 SHA1 bf175608233436c969b5f22d7cf15ff938dae546 lib/Unexpected/TraitFor/Throwing.pm
 SHA1 7626a6edf8c93a829fe68ec4232c5c02aa2766db lib/Unexpected/TraitFor/TracingStacks.pm
@@ -43,11 +43,11 @@ SHA1 2f073464e08c28594f0c3e8ba66cbd8fea190226 t/boilerplate.pm
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.12 (GNU/Linux)
 
-iQEcBAEBAgAGBQJULJ7wAAoJEK492j4Im1BphIwH/jOjeLwsHEyEAuV0enbRLFez
-bquLPc9QtnX/IQYHw+8UxYi0Ufnqp6bXGm8Y4EN+FgVjbAuE9U08RdhJ+VTAzxvU
-z5cF2H7tu458ZpOS/AX8yDxh4h3HpnM+PF1d/IN8kUMKOpG5Q+eiKoG3HgwvzC4y
-iaS5e0Y+tR+b6acTcwJmYc/n9y4K8xguFaAlfOal/ay0gAhiBn9KbBTGGtTnFPj2
-2S90341ZDkURfwytF6j9L9uZHCsDcDnljbL9RmzmjQzF+weJWRxdGI3tp16E9JWy
-UFHV4equYp3UIhnphHjgTW6pZ0twVl+x4O/zrHWqWAMlRx11VcCkTRQ5g93hBeM=
-=o64r
+iQEcBAEBAgAGBQJULYwRAAoJEK492j4Im1Bp48gH/21WY9szWtwR1BJOxbqzzDBE
+JQkcQeWoTiBxmBhX9EJ0rA7Uish5MwvpqOTYa4bp2j2X+/tgEwh3BBVMrO3MMnjk
+xomnh8Ih93AJ0WYNQSSuZga02st+gMksrhaEj162uYJzpZ7cW2dkuKaqG5m3z/11
+QAN7D6aqJDPkbxerxErpIKa1epB8DegQZT6Hbge+Sg2anH7YZlt8YZjXI4HSel6O
+B1RBjvTlg9PE1y5Cl8cP9/Wnf7i2bjX5AIt+XcrzaVM2cg4sH6FRh3n4mXlOBPer
+C/SxdDWpX3b+gmEOLyI/VqI9v8s0ag+hPR+5tVUTmNq2/i412MUI8YzVjelEF9w=
+=zRau
 -----END PGP SIGNATURE-----
