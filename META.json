@@ -40,13 +40,13 @@
       "runtime" : {
          "requires" : {
             "Devel::StackTrace" : "1.34",
-            "Exporter::Tiny" : "0.038",
+            "Exporter::Tiny" : "0.042",
             "Module::Runtime" : "0.014",
             "Moo" : "1.006000",
             "Package::Stash" : "0.36",
             "Sub::Install" : "0.928",
             "Type::Tiny" : "1.000002",
-            "namespace::autoclean" : "0.19",
+            "namespace::autoclean" : "0.20",
             "perl" : "5.010001"
          }
       }
@@ -54,35 +54,35 @@
    "provides" : {
       "Unexpected" : {
          "file" : "lib/Unexpected.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       },
       "Unexpected::Functions" : {
          "file" : "lib/Unexpected/Functions.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       },
       "Unexpected::TraitFor::ErrorLeader" : {
          "file" : "lib/Unexpected/TraitFor/ErrorLeader.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       },
       "Unexpected::TraitFor::ExceptionClasses" : {
          "file" : "lib/Unexpected/TraitFor/ExceptionClasses.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       },
       "Unexpected::TraitFor::StringifyingError" : {
          "file" : "lib/Unexpected/TraitFor/StringifyingError.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       },
       "Unexpected::TraitFor::Throwing" : {
          "file" : "lib/Unexpected/TraitFor/Throwing.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       },
       "Unexpected::TraitFor::TracingStacks" : {
          "file" : "lib/Unexpected/TraitFor/TracingStacks.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       },
       "Unexpected::Types" : {
          "file" : "lib/Unexpected/Types.pm",
-         "version" : "v0.33.1"
+         "version" : "v0.34.1"
       }
    },
    "release_status" : "stable",
@@ -101,6 +101,6 @@
          "web" : "http://github.com/pjfl/p5-unexpected"
       }
    },
-   "version" : "0.33.1"
+   "version" : "0.34.1"
 }
 
