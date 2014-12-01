@@ -101,9 +101,13 @@ eval { $class->throw( 'error', args => {} ) }; $e = _eval_error;
 
 like $e, qr{ not \s+ pass \s+ type \s+ constraint }mx, 'Attribute type error';
 
+eval { $class->throw( 'error', [] ) }; $e = _eval_error;
+
+is $e->error, 'error', 'Constucts from string and arrayref';
+
 eval { $class->throw( 'error', { args => [] } ) }; $e = _eval_error;
 
-is $e->error, 'error', 'Constructs from string and hash';
+is $e->error, 'error', 'Constructs from string and hashref';
 
 eval { $class->throw( class => 'Unspecified', args => [ 'Parameter' ] ) };
 
@@ -116,6 +120,15 @@ eval { $class->throw( Unspecified, args => [ 'Parameter' ] ) };
 $e = _eval_error;
 
 like $e, qr{ \Q'Parameter' not specified\E }mx, 'Error string from coderef';
+
+eval { $class->throw( Unspecified, [ 'Parameter' ] ) }; $e = _eval_error;
+
+like $e, qr{ \Q'Parameter' not specified\E }mx,
+   'Error string from coderef - args shortcut';
+
+eval { $class->throw( Unspecified ) }; $e = _eval_error;
+
+like $e, qr{ \Q'[?]' not specified\E }mx, 'Error string from coderef no args';
 
 $e = $class->caught( $e, { leader => 'different' } );
 
@@ -300,6 +313,11 @@ eval { try { die } catch_class []; };
 $e = _eval_error;
 
 like "${e}", qr{ \A Died }mx, 'Catch class - undefined keys';
+
+$v = try { $class->throw( class => 'Unspecified' ) }
+     catch_class [ undef, sub { 1 }, 'Unspecified' => sub { 1 } ];
+
+is $v, 1, 'Catch class - undefined catch_class keys';
 
 eval { catch_class []; };
 

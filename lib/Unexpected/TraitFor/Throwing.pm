@@ -5,66 +5,66 @@ use namespace::autoclean;
 use Carp                    ( );
 use English               qw( -no_match_vars );
 use Scalar::Util          qw( blessed );
-use Unexpected::Functions qw( build_attr_from );
+use Unexpected::Functions qw( build_attr_from is_one_of_us );
 use Unexpected::Types     qw( Maybe Object );
 use Moo::Role;
 
-requires qw( BUILD is_one_of_us );
+requires qw( BUILD );
 
 my %Cache;
 
-# Lifted from Throwable
-has 'previous_exception' => is => 'ro', isa => Maybe[Object],
-   default               => sub { $Cache{ __cache_key() } };
-
-# Construction
-after 'BUILD' => sub {
-   my $self = shift; $self->_cache_exception; return;
+# Private functions
+my $_cache_key = sub {
+   # uncoverable branch true
+   return $PID.'-'.(exists $INC{ 'threads.pm' } ? threads->tid() : 0);
 };
 
-# Public methods
-sub caught {
-   my ($self, @args) = @_; $self->_is_object_ref( @args ) and return $self;
-
-   my $attr  = build_attr_from( @args );
-   my $error = $attr->{error} ||= $EVAL_ERROR; $error or return;
-
-   return $self->is_one_of_us( $error ) ? $error : $self->new( $attr );
-}
-
-sub throw {
-   my ($self, @args) = @_;
-
-   $self->_is_object_ref( @args )    and die $self;
-   $self->is_one_of_us( $args[ 0 ] ) and die $args[ 0 ];
-                                         die $self->new( @args );
-}
-
-sub throw_on_error {
-   my $e; $e = shift->caught( @_ ) and die $e; return;
-}
+# Lifted from Throwable
+has 'previous_exception' => is => 'ro', isa => Maybe[Object],
+   default               => sub { $Cache{ $_cache_key->() } };
 
 # Private methods
-sub _cache_exception {
+my $_cache_exception = sub {
    my $self = shift; my $e = bless { %{ $self } }, blessed $self;
 
-   delete $e->{previous_exception}; $Cache{ __cache_key() } = $e;
+   delete $e->{previous_exception}; $Cache{ $_cache_key->() } = $e;
 
    return;
-}
+};
 
-sub _is_object_ref {
+my $_is_object_ref = sub {
    my ($self, @args) = @_; blessed $self or return 0;
 
    scalar @args and Carp::confess
       'Trying to throw an Exception object with arguments';
    return 1;
+};
+
+# Construction
+after 'BUILD' => sub {
+   my $self = shift; $self->$_cache_exception; return;
+};
+
+# Public methods
+sub caught {
+   my ($self, @args) = @_; $self->$_is_object_ref( @args ) and return $self;
+
+   my $attr  = build_attr_from( @args );
+   my $error = $attr->{error} ||= $EVAL_ERROR; $error or return;
+
+   return (is_one_of_us $error) ? $error : $self->new( $attr );
 }
 
-# Private functions
-sub __cache_key {
-   # uncoverable branch true
-   return $PID.'-'.(exists $INC{ 'threads.pm' } ? threads->tid() : 0);
+sub throw {
+   my ($self, @args) = @_;
+
+   $self->$_is_object_ref( @args ) and die $self;
+   is_one_of_us $args[ 0 ]         and die $args[ 0 ];
+                                       die $self->new( @args );
+}
+
+sub throw_on_error {
+   my $e; $e = shift->caught( @_ ) and die $e; return;
 }
 
 1;
@@ -108,16 +108,21 @@ May hold a reference to the previous exception in this thread
 
 =head1 Subroutines/Methods
 
+=head2 BUILD
+
+After construction the current exception is cached so that it can become
+the previous exception the next time an exception is thrown
+
 =head2 caught
 
-   $self = $class->caught( [ @args ] );
+   $exception_object_ref = Unexpected->caught( @optional_args );
 
 Catches and returns a thrown exception or generates a new exception if
 C<$EVAL_ERROR> has been set. Returns either an exception object or undef
 
 =head2 throw
 
-   $class->throw error => 'Path [_1] not found', args => [ 'pathname' ];
+   Unexpected->throw 'Path [_1] not found', args => [ 'pathname' ];
 
 Create (or re-throw) an exception. If the passed parameter is a
 blessed reference it is re-thrown. If a single scalar is passed it is
@@ -129,7 +134,7 @@ in this case
 
 =head2 throw_on_error
 
-   $class->throw_on_error( [ @args ] );
+   Unexpected->throw_on_error( @optional_args );
 
 Calls L</caught> passing in the options C<@args> and if there was an
 exception L</throw>s it

@@ -9,10 +9,74 @@ use Package::Stash;
 use Scalar::Util qw( blessed reftype );
 use Sub::Install qw( install_sub );
 
-our @EXPORT_OK = qw( build_attr_from catch_class has_exception inflate_message
-                     is_class_loaded );
+our @EXPORT_OK = qw( build_attr_from catch_class exception has_exception
+                     inflate_message is_class_loaded is_one_of_us throw
+                     throw_on_error );
 
-my $Should_Quote = 1;
+my $Exception_Class = 'Unexpected'; my $Should_Quote = 1;
+
+# Private functions
+my $_catch = sub {
+   my $block = shift; return ((bless \$block, 'Try::Tiny::Catch'), @_);
+};
+
+my $_clone_one_of_us = sub {
+   return $_[ 1 ] ? { %{ $_[ 0 ] }, %{ $_[ 1 ] } } : { error => $_[ 0 ] };
+};
+
+my $_dereference_code = sub {
+   my ($code, @args) = @_;
+
+   $args[ 0 ] and ref $args[ 0 ] eq 'ARRAY' and unshift @args, 'args';
+
+   return { class => $code->(), @args };
+};
+
+my $_exception_class = sub {
+   my $caller = shift; my $code = $caller->can( 'EXCEPTION_CLASS' );
+
+   return $code ? $code->() : $Exception_Class;
+};
+
+my $_match_class = sub {
+   my ($x, $ref, $blessed, $does, $key) = @_;
+
+   return !defined $key                                       ? !defined $x
+        : $key eq '*'                                         ? 1
+        : $key eq ':str'                                      ? !$ref
+        : $key eq $ref                                        ? 1
+        : $blessed && $x->can( 'class' ) && $x->class eq $key ? 1
+        : $blessed && $x->$does( $key )                       ? 1
+                                                              : 0;
+};
+
+my $_quote_maybe = sub {
+   return $Should_Quote ? "'".$_[ 0 ]."'" : $_[ 0 ];
+};
+
+my $_gen_checker = sub {
+   my @prototable = @_;
+
+   return sub {
+      my $x       = shift;
+      my $ref     = ref $x;
+      my $blessed = blessed $x;
+      my $does    = ($blessed && $x->can( 'DOES' )) || 'isa';
+      my @table   = @prototable;
+
+      while (my ($key, $value) = splice @table, 0, 2) {
+         $_match_class->( $x, $ref, $blessed, $does, $key ) and return $value
+      }
+
+      return;
+   }
+};
+
+my $_inflate_placeholders = sub { # Sub visible strings for null and undef
+   return map { $_quote_maybe->( (length) ? $_ : '[]' ) }
+          map { $_ // '[?]' } @_,
+          map {       '[?]' } 0 .. 9;
+};
 
 # Package methods
 sub import {
@@ -49,22 +113,27 @@ sub quote_bind_values {
 sub build_attr_from (;@) { # Coerce a hash ref from whatever was passed
    my $n = 0; $n++ while (defined $_[ $n ]);
 
-   return (                  $n == 0) ? {}
-        : (__is_one_of_us( $_[ 0 ] )) ? __clone_one_of_us( @_ )
-        : (    ref $_[ 0 ] eq 'CODE') ? __dereference_code( @_ )
-        : (    ref $_[ 0 ] eq 'HASH') ? { %{ $_[ 0 ] } }
-        : (                  $n == 1) ? { error => $_[ 0 ] }
-        : (    ref $_[ 1 ] eq 'HASH') ? { error => $_[ 0 ], %{ $_[ 1 ] } }
-        : (              $n % 2 == 1) ? { error => @_ }
-                                      : { @_ };
+   return (                $n == 0) ? {}
+        : (is_one_of_us( $_[ 0 ] )) ? $_clone_one_of_us->( @_ )
+        : ( ref $_[ 0 ] eq  'CODE') ? $_dereference_code->( @_ )
+        : ( ref $_[ 0 ] eq  'HASH') ? { %{ $_[ 0 ] } }
+        : (                $n == 1) ? { error => $_[ 0 ] }
+        : ( ref $_[ 1 ] eq 'ARRAY') ? { error => (shift), args => @_ }
+        : ( ref $_[ 1 ] eq  'HASH') ? { error => $_[ 0 ], %{ $_[ 1 ] } }
+        : (            $n % 2 == 1) ? { error => @_ }
+                                    : { @_ };
 }
 
 sub catch_class ($@) {
-   my $checker = __gen_checker( @{+ shift }, '*' => sub { die $_[ 0 ] } );
+   my $check = $_gen_checker->( @{+ shift }, '*' => sub { die $_[ 0 ] } );
 
    wantarray or croak 'Useless bare catch_class()';
 
-   return __catch( sub { ($checker->( $_[ 0 ] ) || return)->( $_[ 0 ] ) }, @_ );
+   return $_catch->( sub { ($check->( $_[ 0 ] ) || return)->( $_[ 0 ] ) }, @_ );
+}
+
+sub exception (;@) {
+   return $_exception_class->( caller )->caught( @_ );
 }
 
 sub has_exception ($;@) {
@@ -74,7 +143,7 @@ sub has_exception ($;@) {
 }
 
 sub inflate_message ($;@) { # Expand positional parameters of the form [_<n>]
-   my $msg = shift; my @args = __inflate_placeholders( @_ );
+   my $msg = shift; my @args = $_inflate_placeholders->( @_ );
 
    $msg =~ s{ \[ _ (\d+) \] }{$args[ $1 - 1 ]}gmx; return $msg;
 }
@@ -100,61 +169,16 @@ sub is_class_loaded ($) { # Lifted from Class::Load
    return $stash->list_all_symbols( 'CODE' ) ? 1 : 0;
 }
 
-# Private functions
-sub __catch {
-   my $block = shift; return ((bless \$block, 'Try::Tiny::Catch'), @_);
+sub is_one_of_us ($) {
+   return $_[ 0 ] && (blessed $_[ 0 ]) && $_[ 0 ]->isa( $Exception_Class );
 }
 
-sub __clone_one_of_us {
-   return $_[ 1 ] ? { %{ $_[ 0 ] }, %{ $_[ 1 ] } } : { error => $_[ 0 ] };
+sub throw (;@) {
+   $_exception_class->( caller )->throw( @_ );
 }
 
-sub __dereference_code {
-   my $code = shift; return { class => $code->(), @_ };
-}
-
-sub __gen_checker {
-   my @prototable = @_;
-
-   return sub {
-      my $x       = shift;
-      my $ref     = ref $x;
-      my $blessed = blessed $x;
-      my $does    = ($blessed && $x->can( 'DOES' )) || 'isa';
-      my @table   = @prototable;
-
-      while (my ($key, $value) = splice @table, 0, 2) {
-         __match_class( $x, $ref, $blessed, $does, $key ) and return $value
-      }
-
-      return;
-   }
-}
-
-sub __inflate_placeholders { # Substitute visible strings for null and undef
-   return map { __quote_maybe( (length) ? $_ : '[]' ) }
-          map { $_ // '[?]' } @_,
-          map {       '[?]' } 0 .. 9;
-}
-
-sub __is_one_of_us {
-   return $_[ 0 ] && (blessed $_[ 0 ]) && $_[ 0 ]->isa( 'Unexpected' );
-}
-
-sub __match_class {
-   my ($x, $ref, $blessed, $does, $key) = @_;
-
-   return !defined $key                                       ? !defined $x
-        : $key eq '*'                                         ? 1
-        : $key eq ':str'                                      ? !$ref
-        : $key eq $ref                                        ? 1
-        : $blessed && $x->can( 'class' ) && $x->class eq $key ? 1
-        : $blessed && $x->$does( $key )                       ? 1
-                                                              : 0;
-}
-
-sub __quote_maybe {
-   return $Should_Quote ? "'".$_[ 0 ]."'" : $_[ 0 ];
+sub throw_on_error (;@) {
+   return $_exception_class->( caller )->throw_on_error( @_ );
 }
 
 1;
@@ -207,7 +231,7 @@ Defines no attributes
 
    $hash_ref = build_attr_from( <whatever> );
 
-Coerces a hash ref from whatever args are passed. This subroutine is
+Coerces a hash ref from whatever args are passed. This function is
 responsible for parsing the arguments passed to the constructor. Supports
 the following signatures
 
@@ -225,6 +249,7 @@ the following signatures
    # exception class and the remaining arguents are treated as a list of
    # keys and values
    Unexpected->new( Unspecified, args => [ 'parameter name' ] );
+   Unexpected->new( Unspecified, [ 'parameter name' ] ); # Shortcut
 
    # first argmentt is a hash reference - clone it
    Unexpected->new( { key => 'value', ... } );
@@ -237,6 +262,8 @@ the following signatures
 
    # odd numbered list of arguments is the error followed by keys and values
    Unexpected->new( $error_string, key => 'value', ... );
+   Unexecpted->new( 'File [_1] not found', args => [ $filename ] );
+   Unexecpted->new( 'File [_1] not found', [ $filename ] ); # Shortcut
 
    arguments are a list of keys and values
    Unexpected->new( key => 'value', ... );
@@ -252,16 +279,23 @@ the following signatures
 See L<Try::Tiny::ByClass>. Checks the exception object's C<class> attribute
 against the list of exception class names passed to C<catch_class>. If there
 is a match, call the subroutine provided to handle that exception. Re-throws
-the exception if there is no match of if the exception object has no C<class>
+the exception if there is no match or if the exception object has no C<class>
 attribute
+
+=head2 exception;
+
+   $exception_object_ref = exception $optional_error;
+
+A function which calls the L<caught|Unexpected::TraitFor::Throwing/caught>
+class method
 
 =head2 has_exception
 
    has_exception 'exception_name' => parents => [ 'parent_exception' ],
       error => 'Error message for the exception with placeholders';
 
-Calls L<Unexpected::TraitFor::ExceptionClasses/add_exception> via the
-calling class which is assumed to inherit from a class that consumes
+A function which calls L<Unexpected::TraitFor::ExceptionClasses/add_exception>
+via the calling class which is assumed to inherit from a class that consumes
 the L<Unexpected::TraitFor::ExceptionClasses> role
 
 =head2 inflate_message
@@ -277,13 +311,33 @@ with the corresponding argument
 
 Returns true is the classname as already loaded and compiled
 
+=head2 is_one_of_us
+
+   $bool = is_one_of_us $string_or_exception_object_ref;
+
+Function which detects instances of this exception class
+
 =head2 quote_bind_values
 
    $bool = Unexpected::Functions->quote_bind_values( $bool );
 
-Accessor / mutator package method that toggles the state on quoting
+Accessor / mutator class method that toggles the state on quoting
 the placeholder substitution values in C<inflate_message>. Defaults
 to true
+
+=head2 throw
+
+   throw 'Path [_1] not found', args => [ 'pathname' ];
+
+A function which calls the L<throw|Unexpected::TraitFor::Throwing/throw> class
+method
+
+=head2 throw_on_error
+
+   throw_on_error @optional_args;
+
+A function which calls the
+L<throw_on_error|Unexpected::TraitFor::Throwing/throw_on_error> class method
 
 =head1 Diagnostics
 
